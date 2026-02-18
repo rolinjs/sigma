@@ -79,6 +79,19 @@
             pointer-events: none;
         }
 
+        /* NUEVO: azul fosforescente parpadeante cuando falta 1 minuto */
+        .tina-casi-salida {
+            background: #00ffff !important; /* azul fosforescente */
+            animation: parpadeo 0.7s infinite alternate;
+        }
+
+        @keyframes parpadeo {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+
         @keyframes pulsar {
             0% {
                 transform: scale(0.8);
@@ -492,9 +505,21 @@
                     tinaCard.addClass("tina-activa tina-calor tina-calor-animado");
                     tinaCard.find(".tina-status").html("CANASTA " + num);
 
+                    // Tiempo total en milisegundos
+                    let tiempoTotal = 75000; // 75s simulando 75 min
+                    let tiempoCasiSalida = 69000; // 1 minuto antes (74s)
+
                     setTimeout(() => {
-                        tinaCard.removeClass("tina-calor-animado");
-                    }, 75000); // 75 minutos simulados como 75s
+                        // Cambiar a azul fosforescente
+                        tinaCard.removeClass("tina-calor-animado").addClass("tina-casi-salida");
+                    }, tiempoCasiSalida);
+
+                    setTimeout(() => {
+                        // Quitar todo efecto cuando termine
+                        tinaCard.removeClass("tina-casi-salida tina-activa tina-calor");
+                        tinaCard.find(".tina-status").html("DISPONIBLE");
+                    }, tiempoTotal);
+
                 }
             });
         });
