@@ -240,9 +240,8 @@
 
                     <hr>
 
-                    <div id="infoProceso">
-                        <p><strong>Modo:</strong> SIN HIDROCOOLER</p>
-                    </div>
+                    <!-- Contenedor que siempre tendrá los inputs del radio seleccionado -->
+                    <div id="infoProceso"></div>
 
                     <hr>
 
@@ -310,19 +309,22 @@
 
             $(".tina-card").click(function () {
                 $("#aperturarModal").modal("show");
+
+                // Renderizamos por defecto los inputs del radio 1 al abrir el modal
+                renderProceso(1);
             });
 
             $("input[name='proceso']").change(function () {
+                renderProceso($(this).val());
+            });
 
-                var valor = $(this).val();
+            function renderProceso(valor) {
+                let ahora = new Date();
+                let inicio = ahora.toISOString().slice(0, 16);
+                let fin = new Date(ahora.getTime() + (75 * 60000));
+                let finFormat = fin.toISOString().slice(0, 16);
 
-                // ===== RADIO 1 CORREGIDO =====
                 if (valor == "1") {
-                    let ahora = new Date();
-                    let inicio = ahora.toISOString().slice(0, 16);
-                    let fin = new Date(ahora.getTime() + (75 * 60000));
-                    let finFormat = fin.toISOString().slice(0, 16);
-
                     $("#infoProceso").html(`
                         <div class="row">
                             <div class="col-md-3 mb-2">
@@ -343,73 +345,47 @@
                             </div>
                         </div>
                     `);
-                }
-
-                // ===== RADIO 2 =====
-                if (valor == "2") {
-
-                    let ahora = new Date();
-                    let inicio = ahora.toISOString().slice(0, 16);
-                    let fin = new Date(ahora.getTime() + (75 * 60000));
-                    let finFormat = fin.toISOString().slice(0, 16);
-
+                } else if (valor == "2") {
                     $("#infoProceso").html(`
-
                         <div class="row">
-
-                            <!-- FILA 1 -->
                             <div class="col-md-3 mb-2">
                                 <label>Tiempo restante</label>
                                 <input type="text" class="form-control" value="75 min" readonly>
                             </div>
-
                             <div class="col-md-3 mb-2">
                                 <label>Inicio Hidrotérmico</label>
                                 <input type="datetime-local" class="form-control" value="${inicio}">
                             </div>
-
                             <div class="col-md-3 mb-2">
                                 <label>Fin Hidrotérmico</label>
                                 <input type="datetime-local" class="form-control" value="${finFormat}">
                             </div>
-
                             <div class="col-md-3 mb-2">
                                 <label>Hora de salida</label>
                                 <input type="datetime-local" class="form-control">
                             </div>
-
-                            <!--  FILA 2 -->
                             <div class="col-md-3 mb-2">
                                 <label>Inicio Reposo</label>
                                 <input type="datetime-local" class="form-control">
                             </div>
-
                             <div class="col-md-3 mb-2">
                                 <label>Fin Reposo</label>
                                 <input type="datetime-local" class="form-control">
                             </div>
-
                             <div class="col-md-3 mb-2">
                                 <label>Inicio Frío</label>
                                 <input type="datetime-local" class="form-control">
                             </div>
-
                             <div class="col-md-3 mb-2">
                                 <label>Fin Frío</label>
                                 <input type="datetime-local" class="form-control">
                             </div>
-
                         </div>
-
                     `);
-                }
-
-                // ===== RADIO 3 =====
-                if (valor == "3") {
+                } else if (valor == "3") {
                     $("#infoProceso").html("<p><strong>Modo:</strong> CON HIDROCOOLER SIN REPOSO</p>");
                 }
-
-            });
+            }
 
             // ================= Cambio de agua =================
             let contador = 0;
@@ -419,7 +395,7 @@
                 if ($(this).is(":checked") && !cambioAguaActivado) {
                     contador += 1;
                     $("#contadorAgua").text(contador);
-                    cambioAguaActivado = true;  
+                    cambioAguaActivado = true;
                     $("#observacionesAgua").slideDown();
                 } else if (!$(this).is(":checked")) {
                     $("#observacionesAgua").slideUp();
