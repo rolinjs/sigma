@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html style="height: auto;">
 
@@ -63,6 +62,39 @@
             text-align: center;
             font-weight: bold;
         }
+
+        /* NUEVO: Degradado rojo “calor” para los tanques */
+        .tina-calor {
+            background: linear-gradient(135deg, #ff9999, #ff0000) !important;
+        }
+
+        /* EFECTO CALOR HIDROTERMICO */
+        .tina-calor-animado::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 0, 0, 0.4) 60%, rgba(255, 0, 0, 0) 100%);
+            animation: pulsar 1.2s infinite;
+            border-radius: 4px;
+            pointer-events: none;
+        }
+
+        @keyframes pulsar {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 0.9;
+            }
+
+            100% {
+                transform: scale(0.8);
+                opacity: 0.6;
+            }
+        }
     </style>
 </head>
 
@@ -93,14 +125,12 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <li class="nav-item">
-                            <a class='nav-link' href='/'>
-                                <i class="nav-icon far fa-circle text-warning"></i>
+                            <a class='nav-link' href='/'><i class="nav-icon far fa-circle text-warning"></i>
                                 <p>Abastecimiento</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class='nav-link' href='/hidro'>
-                                <i class="nav-icon far fa-circle text-info"></i>
+                            <a class='nav-link' href='/hidro'><i class="nav-icon far fa-circle text-info"></i>
                                 <p>Hidrotérmico</p>
                             </a>
                         </li>
@@ -122,17 +152,17 @@
                             <script>
                                 for (let i = 1; i <= 6; i++) {
                                     document.write(`
-                                        <div class="col-md-3 col-sm-6 mb-4">
-                                            <div class="tina-card" data-tank="${i}">
-                                            <div>
-                                                <div class="tina-title">TINA</div>
-                                                <div class="tina-num">${i.toString().padStart(2, '0')}</div>
-                                                <div class="tina-status">DISPONIBLE</div>
-                                            </div>
-                                            <div class="tank-body" style="position:absolute; inset:0; opacity:0;"></div>
-                                            </div>
-                                        </div>
-                                    `);
+<div class="col-md-3 col-sm-6 mb-4">
+<div class="tina-card" data-tank="${i}">
+<div>
+<div class="tina-title">TINA</div>
+<div class="tina-num">${i.toString().padStart(2, '0')}</div>
+<div class="tina-status">DISPONIBLE</div>
+</div>
+<div class="tank-body" style="position:absolute; inset:0; opacity:0;"></div>
+</div>
+</div>
+`);
                                 }
                             </script>
                         </div>
@@ -178,7 +208,7 @@
                                 <option>Canasta 2</option>
                             </select>
                         </div>
-                        
+
                         <div class="col-md-4">
                             <label>Calibre</label>
                             <input type="text" class="form-control" value="12" readonly>
@@ -189,14 +219,16 @@
                             <input type="text" class="form-control" value="75'" readonly>
                         </div><br><br><br><br>
                         <!-- NUEVA TARJETA INFORMATIVA -->
-                        <div class="card mb-3 shadow-sm w-100" style="background-color: #f5f5f5; border-radius: 8px; padding: 15px;">
+                        <div class="card mb-3 shadow-sm w-100"
+                            style="background-color: #f5f5f5; border-radius: 8px; padding: 15px;">
                             <div class="row text-center">
                                 <div class="col-md-4 col-12 mb-2">
                                     <div style="font-weight:bold; font-size:12px; color:#555;">N° TRATAMIENTO</div>
                                     <div style="font-size:18px; font-weight:600; color:#333;">TR-001</div>
                                 </div>
                                 <div class="col-md-4 col-12 mb-2">
-                                    <div style="font-weight:bold; font-size:12px; color:#555;">N° TRATAMIENTO POR DESTINO</div>
+                                    <div style="font-weight:bold; font-size:12px; color:#555;">N° TRATAMIENTO POR
+                                        DESTINO</div>
                                     <div style="font-size:18px; font-weight:600; color:#333;">TD-002</div>
                                 </div>
                                 <div class="col-md-4 col-12 mb-2">
@@ -285,7 +317,8 @@
                                 <label class="form-check-label" for="cambioAgua">Cambio de agua</label>
                             </div>
                             <div id="observacionesAgua" style="display:none; margin-top:10px;">
-                                <textarea class="form-control" rows="3" placeholder="Ingrese observaciones..."></textarea>
+                                <textarea class="form-control" rows="3"
+                                    placeholder="Ingrese observaciones..."></textarea>
                             </div>
                         </div>
                     </div>
@@ -320,15 +353,15 @@
                 drop: function (event, ui) {
                     var tinaCard = $(this).closest(".tina-card");
                     var num = ui.draggable.data("id");
-                    tinaCard.addClass("tina-activa");
+
+                    // NUEVO: Aplica degradado rojo calor al tanque
+                    tinaCard.addClass("tina-activa tina-calor");
                     tinaCard.find(".tina-status").html("CANASTA " + num);
                 }
             });
 
             $(".tina-card").click(function () {
                 $("#aperturarModal").modal("show");
-
-                // Renderizamos por defecto los inputs del radio 1 al abrir el modal
                 renderProceso(1);
             });
 
@@ -344,83 +377,83 @@
 
                 if (valor == "1") {
                     $("#infoProceso").html(`
-                        <div class="row">
-                            <div class="col-md-3 mb-2">
-                                <label>Inicio Hidrotérmico</label>
-                                <input type="datetime-local" class="form-control" value="${inicio}">
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <label>Fin Hidrotérmico</label>
-                                <input type="datetime-local" class="form-control" value="${finFormat}">
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <label>Hora Final Proyectada</label>
-                                <input type="datetime-local" class="form-control" value="${finFormat}">
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <label>Tiempo estimado</label>
-                                <input type="text" class="form-control" value="75 min" readonly>
-                            </div>
-                        </div>
-                    `);
+<div class="row">
+<div class="col-md-3 mb-2">
+<label>Inicio Hidrotérmico</label>
+<input type="datetime-local" class="form-control" value="${inicio}">
+</div>
+<div class="col-md-3 mb-2">
+<label>Fin Hidrotérmico</label>
+<input type="datetime-local" class="form-control" value="${finFormat}">
+</div>
+<div class="col-md-3 mb-2">
+<label>Hora Final Proyectada</label>
+<input type="datetime-local" class="form-control" value="${finFormat}">
+</div>
+<div class="col-md-3 mb-2">
+<label>Tiempo estimado</label>
+<input type="text" class="form-control" value="75 min" readonly>
+</div>
+</div>
+`);
                 } else if (valor == "2") {
                     $("#infoProceso").html(`
-                        <div class="row">
-                            <div class="col-md-3 mb-2">
-                                <label>Tiempo restante</label>
-                                <input type="text" class="form-control" value="75 min" readonly>
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <label>Inicio Hidrotérmico</label>
-                                <input type="datetime-local" class="form-control" value="${inicio}">
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <label>Fin Hidrotérmico</label>
-                                <input type="datetime-local" class="form-control" value="${finFormat}">
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <label>Hora de salida</label>
-                                <input type="datetime-local" class="form-control">
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <label>Inicio Reposo</label>
-                                <input type="datetime-local" class="form-control">
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <label>Fin Reposo</label>
-                                <input type="datetime-local" class="form-control">
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <label>Inicio Frío</label>
-                                <input type="datetime-local" class="form-control">
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <label>Fin Frío</label>
-                                <input type="datetime-local" class="form-control">
-                            </div>
-                        </div>
-                    `);
+<div class="row">
+<div class="col-md-3 mb-2">
+<label>Tiempo restante</label>
+<input type="text" class="form-control" value="75 min" readonly>
+</div>
+<div class="col-md-3 mb-2">
+<label>Inicio Hidrotérmico</label>
+<input type="datetime-local" class="form-control" value="${inicio}">
+</div>
+<div class="col-md-3 mb-2">
+<label>Fin Hidrotérmico</label>
+<input type="datetime-local" class="form-control" value="${finFormat}">
+</div>
+<div class="col-md-3 mb-2">
+<label>Hora de salida</label>
+<input type="datetime-local" class="form-control">
+</div>
+<div class="col-md-3 mb-2">
+<label>Inicio Reposo</label>
+<input type="datetime-local" class="form-control">
+</div>
+<div class="col-md-3 mb-2">
+<label>Fin Reposo</label>
+<input type="datetime-local" class="form-control">
+</div>
+<div class="col-md-3 mb-2">
+<label>Inicio Frío</label>
+<input type="datetime-local" class="form-control">
+</div>
+<div class="col-md-3 mb-2">
+<label>Fin Frío</label>
+<input type="datetime-local" class="form-control">
+</div>
+</div>
+`);
                 } else if (valor == "3") {
                     $("#infoProceso").html(`
-                        <div class="row">
-                            <div class="col-md-3 mb-2">
-                                <label>Inicio Hidrotérmico</label>
-                                <input type="datetime-local" class="form-control" value="${inicio}">
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <label>Fin Hidrotérmico</label>
-                                <input type="datetime-local" class="form-control" value="${finFormat}">
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <label>Hora Final Proyectada</label>
-                                <input type="datetime-local" class="form-control" value="${finFormat}">
-                            </div>
-                            <div class="col-md-3 mb-2">
-                                <label>Tiempo estimado</label>
-                                <input type="text" class="form-control" value="75 min" readonly>
-                            </div>
-                        </div>
-                    `);
+<div class="row">
+<div class="col-md-3 mb-2">
+<label>Inicio Hidrotérmico</label>
+<input type="datetime-local" class="form-control" value="${inicio}">
+</div>
+<div class="col-md-3 mb-2">
+<label>Fin Hidrotérmico</label>
+<input type="datetime-local" class="form-control" value="${finFormat}">
+</div>
+<div class="col-md-3 mb-2">
+<label>Hora Final Proyectada</label>
+<input type="datetime-local" class="form-control" value="${finFormat}">
+</div>
+<div class="col-md-3 mb-2">
+<label>Tiempo estimado</label>
+<input type="text" class="form-control" value="75 min" readonly>
+</div>
+</div>
+`);
                 }
             }
 
@@ -428,7 +461,7 @@
             let contador = 0;
             let cambioAguaActivado = false;
 
-            $("#cambioAgua").change(function() {
+            $("#cambioAgua").change(function () {
                 if ($(this).is(":checked") && !cambioAguaActivado) {
                     contador += 1;
                     $("#contadorAgua").text(contador);
@@ -439,6 +472,31 @@
                 }
             });
 
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $(".canasta").draggable({
+                revert: "invalid",
+                helper: "clone"
+            });
+
+            $(".tank-body").droppable({
+                accept: ".canasta",
+                hoverClass: "zona-hover",
+                drop: function (event, ui) {
+                    var tinaCard = $(this).closest(".tina-card");
+                    var num = ui.draggable.data("id");
+
+                    tinaCard.addClass("tina-activa tina-calor tina-calor-animado");
+                    tinaCard.find(".tina-status").html("CANASTA " + num);
+
+                    setTimeout(() => {
+                        tinaCard.removeClass("tina-calor-animado");
+                    }, 75000); // 75 minutos simulados como 75s
+                }
+            });
         });
     </script>
 
