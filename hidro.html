@@ -17,7 +17,7 @@
         .tina-card {
             position: relative;
             height: 180px;
-            background-color: #8a8f95;
+            background-color: #94bae7;
             color: white;
             border-radius: 4px;
             transition: 0.3s;
@@ -238,8 +238,8 @@
                             <input type="radio" name="proceso" class="custom-control-input" id="r3" value="3">
                             <label class="custom-control-label" for="r3">CON HIDROCOOLER SIN REPOSO</label>
                         </div>
-                    </div>
 
+                    </div>
 
                     <hr>
 
@@ -386,7 +386,26 @@
                         </div>
                     `);
                 } else if (valor == "3") {
-                    $("#infoProceso").html("<p><strong>Modo:</strong> CON HIDROCOOLER SIN REPOSO</p>");
+                    $("#infoProceso").html(`
+                        <div class="row">
+                            <div class="col-md-3 mb-2">
+                                <label>Inicio Hidrotérmico</label>
+                                <input type="datetime-local" class="form-control" value="${inicio}">
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <label>Fin Hidrotérmico</label>
+                                <input type="datetime-local" class="form-control" value="${finFormat}">
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <label>Hora Final Proyectada</label>
+                                <input type="datetime-local" class="form-control" value="${finFormat}">
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <label>Tiempo estimado</label>
+                                <input type="text" class="form-control" value="75 min" readonly>
+                            </div>
+                        </div>
+                    `);
                 }
             }
 
