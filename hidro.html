@@ -394,17 +394,16 @@
 
             // ================= Cambio de agua =================
             let contador = 0;
+            let cambioAguaActivado = false;
 
             $("#cambioAgua").change(function() {
-                if ($(this).is(":checked")) {
+                if ($(this).is(":checked") && !cambioAguaActivado) {
                     contador += 1;
                     $("#contadorAgua").text(contador);
+                    cambioAguaActivado = true;  // asegura que no vuelva a subir
                     $("#observacionesAgua").slideDown();
-                } else {
+                } else if (!$(this).is(":checked")) {
                     $("#observacionesAgua").slideUp();
-                    // opcional: si quieres que baje el contador al desmarcar
-                    // contador -= 1;
-                    // $("#contadorAgua").text(contador);
                 }
             });
 
