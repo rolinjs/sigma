@@ -74,7 +74,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="resorce/index3.html" class="brand-link">
+            <a class='brand-link' href='/resorce/index3'>
                 <img src="resorce/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">AdminLTE 3</span>
@@ -98,13 +98,13 @@
                         data-accordion="false">
 
                         <li class="nav-item">
-                            <a href="index.html" class="nav-link">
+                            <a class='nav-link' href='/'>
                                 <i class="nav-icon far fa-circle text-warning"></i>
                                 <p>Abastecimiento</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="hidro.html" class="nav-link">
+                            <a class='nav-link' href='/hidro'>
                                 <i class="nav-icon far fa-circle text-info"></i>
                                 <p>Hidrotérmico</p>
                             </a>
@@ -266,6 +266,21 @@
                         </div>
                     </div>
 
+                    <!-- 🔹 NUEVO BLOQUE: Contador y cambio de agua -->
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Contador cambio agua: <span id="contadorAgua">0</span></label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="cambioAgua">
+                                <label class="form-check-label" for="cambioAgua">Cambio de agua</label>
+                            </div>
+                            <div id="observacionesAgua" style="display:none; margin-top:10px;">
+                                <textarea class="form-control" rows="3" placeholder="Ingrese observaciones..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="modal-footer">
@@ -375,6 +390,22 @@
                     $("#infoProceso").html("<p><strong>Modo:</strong> CON HIDROCOOLER SIN REPOSO</p>");
                 }
 
+            });
+
+            // ================= Cambio de agua =================
+            let contador = 0;
+
+            $("#cambioAgua").change(function() {
+                if ($(this).is(":checked")) {
+                    contador += 1;
+                    $("#contadorAgua").text(contador);
+                    $("#observacionesAgua").slideDown();
+                } else {
+                    $("#observacionesAgua").slideUp();
+                    // opcional: si quieres que baje el contador al desmarcar
+                    // contador -= 1;
+                    // $("#contadorAgua").text(contador);
+                }
             });
 
         });
