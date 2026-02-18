@@ -165,18 +165,18 @@
                             <script>
                                 for (let i = 1; i <= 6; i++) {
                                     document.write(`
-<div class="col-md-3 col-sm-6 mb-4">
-<div class="tina-card" data-tank="${i}">
-<div>
-<div class="tina-title">TINA</div>
-<div class="tina-num">${i.toString().padStart(2, '0')}</div>
-<div class="tina-status">DISPONIBLE</div>
-</div>
-<div class="tank-body" style="position:absolute; inset:0; opacity:0;"></div>
-</div>
-</div>
-`);
-                                }
+                                        <div class="col-md-3 col-sm-6 mb-4">
+                                            <div class="tina-card" data-tank="${i}">
+                                            <div>
+                                            <div class="tina-title">TINA</div>
+                                            <div class="tina-num">${i.toString().padStart(2, '0')}</div>
+                                            <div class="tina-status">DISPONIBLE</div>
+                                            </div>
+                                            <div class="tank-body" style="position:absolute; inset:0; opacity:0;"></div>
+                                            </div>
+                                        </div>
+                                        `);
+                                    }
                             </script>
                         </div>
 
@@ -347,6 +347,125 @@
         </div>
     </div>
 
+    <!-- NUEVO MODAL: Información de la canasta -->
+    <div class="modal fade" id="canastaModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header bg-info">
+                <h5 class="modal-title">Detalle Canasta</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Posición de Tar. Canasta</th>
+                    <th>Lote</th>
+                    <th>N° de tarima</th>
+                    <th>Calibre</th>
+                    <th>Cantidad Jabas</th>
+                    <th>Posición de JB. Tar.</th>
+                    <th>DESTINO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="form-control" value="A"></td>
+                    <td><input type="text" class="form-control" value="0008-inc-con"></td>
+                    <td><input type="text" class="form-control" value="001"></td>
+                    <td><input type="text" class="form-control" value="12"></td>
+                    <td><input type="text" class="form-control" value="30"></td>
+                    <td><input type="text" class="form-control" value="1-30"></td>
+                    <td><input type="text" class="form-control" value="USA"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" value="B"></td>
+                    <td><input type="text" class="form-control" value="0008-inc-con"></td>
+                    <td><input type="text" class="form-control" value="002"></td>
+                    <td><input type="text" class="form-control" value="12"></td>
+                    <td><input type="text" class="form-control" value="8"></td>
+                    <td><input type="text" class="form-control" value="1-8"></td>
+                    <td><input type="text" class="form-control" value="USA"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" value="B"></td>
+                    <td><input type="text" class="form-control" value="0009-inc-con"></td>
+                    <td><input type="text" class="form-control" value="002"></td>
+                    <td><input type="text" class="form-control" value="12"></td>
+                    <td><input type="text" class="form-control" value="15"></td>
+                    <td><input type="text" class="form-control" value="9-23"></td>
+                    <td><input type="text" class="form-control" value="USA"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" value="C"></td>
+                    <td><input type="text" class="form-control" value="0009-inc-con"></td>
+                    <td><input type="text" class="form-control" value="003"></td>
+                    <td><input type="text" class="form-control" value="12"></td>
+                    <td><input type="text" class="form-control" value="30"></td>
+                    <td><input type="text" class="form-control" value="1-30"></td>
+                    <td><input type="text" class="form-control" value="USA"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" value="D"></td>
+                    <td><input type="text" class="form-control" value="0010-KOR-con"></td>
+                    <td><input type="text" class="form-control" value="005"></td>
+                    <td><input type="text" class="form-control" value="12"></td>
+                    <td><input type="text" class="form-control" value="16"></td>
+                    <td><input type="text" class="form-control" value="1-16"></td>
+                    <td><input type="text" class="form-control" value="USA"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" value="E"></td>
+                    <td><input type="text" class="form-control" value="0010-KOR-con"></td>
+                    <td><input type="text" class="form-control" value="006"></td>
+                    <td><input type="text" class="form-control" value="12"></td>
+                    <td><input type="text" class="form-control" value="16"></td>
+                    <td><input type="text" class="form-control" value="1-16"></td>
+                    <td><input type="text" class="form-control" value="USA"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" value="F"></td>
+                    <td><input type="text" class="form-control" value="0013-GOL-con"></td>
+                    <td><input type="text" class="form-control" value="038"></td>
+                    <td><input type="text" class="form-control" value="12"></td>
+                    <td><input type="text" class="form-control" value="30"></td>
+                    <td><input type="text" class="form-control" value="1-30"></td>
+                    <td><input type="text" class="form-control" value="USA"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" value="G"></td>
+                    <td><input type="text" class="form-control" value="0015-GOL-con"></td>
+                    <td><input type="text" class="form-control" value="045"></td>
+                    <td><input type="text" class="form-control" value="12"></td>
+                    <td><input type="text" class="form-control" value="30"></td>
+                    <td><input type="text" class="form-control" value="1-30"></td>
+                    <td><input type="text" class="form-control" value="USA"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" value="H"></td>
+                    <td><input type="text" class="form-control" value="0010-KOR-con"></td>
+                    <td><input type="text" class="form-control" value="004"></td>
+                    <td><input type="text" class="form-control" value="12"></td>
+                    <td><input type="text" class="form-control" value="30"></td>
+                    <td><input type="text" class="form-control" value="1-30"></td>
+                    <td><input type="text" class="form-control" value="USA"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="resorce/plugins/jquery/jquery.min.js"></script>
     <script src="resorce/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="resorce/dist/js/adminlte.min.js"></script>
@@ -377,6 +496,19 @@
                 $("#aperturarModal").modal("show");
                 renderProceso(1);
             });
+
+            // DOBLE CLIC en canasta
+            $(".canasta").dblclick(function() {
+                var id = $(this).data("id");
+                var tiempo = $(this).data("tiempo");
+                $("#canastaInfo").html(`
+                    <strong>Canasta:</strong> ${id} <br>
+                    <strong>Tiempo estimado:</strong> ${tiempo} min
+                `);
+                $("#canastaModal").modal("show");
+            });
+
+
 
             $("input[name='proceso']").change(function () {
                 renderProceso($(this).val());
