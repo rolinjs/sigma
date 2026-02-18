@@ -321,55 +321,53 @@
                     let finFormat = fin.toISOString().slice(0, 16);
 
                     $("#infoProceso").html(`
+
                         <div class="row">
 
-                            <div class="col-md-4 mb-2">
-                                <label>Tiempo restante</label>
-                                <input type="text" class="form-control" value="75 min" readonly>
-                            </div>
+    <!-- 🔹 FILA 1 -->
+    <div class="col-md-3 mb-2">
+        <label>Tiempo restante</label>
+        <input type="text" class="form-control" value="75 min" readonly>
+    </div>
 
-                            <div class="col-md-4 mb-2">
-                                <label>Inicio Hidrotérmico</label>
-                                <input type="datetime-local" class="form-control" value="${inicio}">
-                            </div>
+    <div class="col-md-3 mb-2">
+        <label>Inicio Hidrotérmico</label>
+        <input type="datetime-local" class="form-control" value="${inicio}">
+    </div>
 
-                            <div class="col-md-4 mb-2">
-                                <label>Fin Hidrotérmico</label>
-                                <input type="datetime-local" class="form-control" value="${finFormat}">
-                            </div>
+    <div class="col-md-3 mb-2">
+        <label>Fin Hidrotérmico</label>
+        <input type="datetime-local" class="form-control" value="${finFormat}">
+    </div>
 
-                            <div class="col-md-4 mb-2">
-                                <label>Hora de salida</label>
-                                <input type="datetime-local" class="form-control">
-                            </div>
+    <div class="col-md-3 mb-2">
+        <label>Hora de salida (Hidrotérmico)</label>
+        <input type="datetime-local" class="form-control">
+    </div>
 
-                            <div class="col-md-4 mb-2">
-                                <label>Inicio Reposo</label>
-                                <input type="datetime-local" class="form-control">
-                            </div>
+    <!-- 🔹 FILA 2 -->
+    <div class="col-md-3 mb-2">
+        <label>Inicio Reposo</label>
+        <input type="datetime-local" class="form-control">
+    </div>
 
-                            <div class="col-md-4 mb-2">
-                                <label>Fin Reposo</label>
-                                <input type="datetime-local" class="form-control">
-                            </div>
+    <div class="col-md-3 mb-2">
+        <label>Fin Reposo</label>
+        <input type="datetime-local" class="form-control">
+    </div>
 
-                            <div class="col-md-4 mb-2">
-                                <label>Hora de salida</label>
-                                <input type="datetime-local" class="form-control">
-                            </div>
+    <div class="col-md-3 mb-2">
+        <label>Inicio Frío</label>
+        <input type="datetime-local" class="form-control">
+    </div>
 
+    <div class="col-md-3 mb-2">
+        <label>Fin Frío</label>
+        <input type="datetime-local" class="form-control">
+    </div>
 
-                            <div class="col-md-4 mb-2">
-                                <label>Inicio Frío</label>
-                                <input type="datetime-local" class="form-control">
-                            </div>
+</div>
 
-                            <div class="col-md-4 mb-2">
-                                <label>Fin Frío</label>
-                                <input type="datetime-local" class="form-control">
-                            </div>
-
-                        </div>
                     `);
                 }
 
