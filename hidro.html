@@ -71,18 +71,14 @@
 
         <nav class="main-header navbar navbar-expand navbar-white navbar-light"></nav>
 
-        <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
             <a class='brand-link' href='/resorce/index3'>
                 <img src="resorce/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">AdminLTE 3</span>
             </a>
 
-            <!-- Sidebar -->
             <div class="sidebar">
-                <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         <img src="resorce/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
@@ -92,11 +88,9 @@
                     </div>
                 </div>
 
-                <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
-
                         <li class="nav-item">
                             <a class='nav-link' href='/'>
                                 <i class="nav-icon far fa-circle text-warning"></i>
@@ -111,9 +105,7 @@
                         </li>
                     </ul>
                 </nav>
-                <!-- /.sidebar-menu -->
             </div>
-            <!-- /.sidebar -->
         </aside>
 
         <div class="content-wrapper">
@@ -132,9 +124,9 @@
                                         <div class="col-md-3 col-sm-6 mb-4">
                                             <div class="tina-card" data-tank="${i}">
                                             <div>
-                                            <div class="tina-title">TINA</div>
-                                            <div class="tina-num">${i.toString().padStart(2, '0')}</div>
-                                            <div class="tina-status">DISPONIBLE</div>
+                                                <div class="tina-title">TINA</div>
+                                                <div class="tina-num">${i.toString().padStart(2, '0')}</div>
+                                                <div class="tina-status">DISPONIBLE</div>
                                             </div>
                                             <div class="tank-body" style="position:absolute; inset:0; opacity:0;"></div>
                                             </div>
@@ -266,7 +258,7 @@
                         </div>
                     </div>
 
-                    <!-- 🔹 NUEVO BLOQUE: Contador y cambio de agua -->
+                    <!--  NUEVO BLOQUE: Contador y cambio de agua -->
                     <hr>
                     <div class="row">
                         <div class="col-md-12">
@@ -324,10 +316,36 @@
 
                 var valor = $(this).val();
 
+                // ===== RADIO 1 CORREGIDO =====
                 if (valor == "1") {
-                    $("#infoProceso").html("<p><strong>Modo:</strong> SIN HIDROCOOLER</p>");
+                    let ahora = new Date();
+                    let inicio = ahora.toISOString().slice(0, 16);
+                    let fin = new Date(ahora.getTime() + (75 * 60000));
+                    let finFormat = fin.toISOString().slice(0, 16);
+
+                    $("#infoProceso").html(`
+                        <div class="row">
+                            <div class="col-md-3 mb-2">
+                                <label>Inicio Hidrotérmico</label>
+                                <input type="datetime-local" class="form-control" value="${inicio}">
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <label>Fin Hidrotérmico</label>
+                                <input type="datetime-local" class="form-control" value="${finFormat}">
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <label>Hora Final Proyectada</label>
+                                <input type="datetime-local" class="form-control" value="${finFormat}">
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <label>Tiempo estimado</label>
+                                <input type="text" class="form-control" value="75 min" readonly>
+                            </div>
+                        </div>
+                    `);
                 }
 
+                // ===== RADIO 2 =====
                 if (valor == "2") {
 
                     let ahora = new Date();
@@ -386,6 +404,7 @@
                     `);
                 }
 
+                // ===== RADIO 3 =====
                 if (valor == "3") {
                     $("#infoProceso").html("<p><strong>Modo:</strong> CON HIDROCOOLER SIN REPOSO</p>");
                 }
@@ -400,7 +419,7 @@
                 if ($(this).is(":checked") && !cambioAguaActivado) {
                     contador += 1;
                     $("#contadorAgua").text(contador);
-                    cambioAguaActivado = true;  // asegura que no vuelva a subir
+                    cambioAguaActivado = true;  
                     $("#observacionesAgua").slideDown();
                 } else if (!$(this).is(":checked")) {
                     $("#observacionesAgua").slideUp();
