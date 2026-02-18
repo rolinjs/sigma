@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html style="height: auto;">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Hidrotérmico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="resorce/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="resorce/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <style>
+        .tina-card {
+            position: relative;
+            height: 180px;
+            background-color: #8a8f95;
+            color: white;
+            border-radius: 4px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .tina-card:hover {
+            transform: scale(1.03);
+        }
+
+        .tina-activa {
+            background-color: #4db6c6 !important;
+        }
+
+        .tina-title {
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        .tina-num {
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        .tina-status {
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .zona-hover {
+            outline: 3px dashed #28a745;
+        }
+
+        .canasta {
+            cursor: grab;
+            background-color: #fff3cd;
+            min-width: 70px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="sidebar-mini sidebar-collapse">
+
+    <div class="wrapper">
+
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light"></nav>
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="resorce/index3.html" class="brand-link">
+                <img src="resorce/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">AdminLTE 3</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="resorce/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Alexander Pierce</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-warning"></i>
+                                <p>Abastecimiento</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="hidro.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Hidrotérmico</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <div class="content-wrapper">
+            <section class="content pt-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Tanques - Hidrotérmico</h3>
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="row">
+                            <script>
+                                for (let i = 1; i <= 6; i++) {
+                                    document.write(`
+                                        <div class="col-md-3 col-sm-6 mb-4">
+                                            <div class="tina-card" data-tank="${i}">
+                                            <div>
+                                            <div class="tina-title">TINA</div>
+                                            <div class="tina-num">${i.toString().padStart(2, '0')}</div>
+                                            <div class="tina-status">DISPONIBLE</div>
+                                            </div>
+                                            <div class="tank-body" style="position:absolute; inset:0; opacity:0;"></div>
+                                            </div>
+                                        </div>
+                                    `);
+                                }
+                            </script>
+                        </div>
+
+                        <h6 class="mt-4">Canastas disponibles:</h6>
+                        <div class="d-flex flex-wrap mb-3">
+                            <div class="canasta border border-success rounded p-2 mr-2 mb-2" data-id="C1"
+                                data-tiempo="75">Canasta 1</div>
+                            <div class="canasta border border-success rounded p-2 mr-2 mb-2" data-id="C2"
+                                data-tiempo="75">Canasta 2</div>
+                            <div class="canasta border border-success rounded p-2 mr-2 mb-2" data-id="C3"
+                                data-tiempo="75">Canasta 3</div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="main-footer">
+            <strong>AdminLTE 3</strong>
+        </footer>
+
+    </div>
+
+    <!-- ================= MODAL ================= -->
+    <div class="modal fade" id="aperturarModal">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title">Aperturar Hidrotérmico</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Canasta</label>
+                            <select class="form-control">
+                                <option>Canasta 1</option>
+                                <option>Canasta 2</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label>Calibre</label>
+                            <select class="form-control">
+                                <option>5</option>
+                                <option>6</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label>Tiempo</label>
+                            <input type="text" class="form-control" value="75'" readonly>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered bg-info text-white">
+                            <thead>
+                                <tr>
+                                    <th>Lote</th>
+                                    <th>Nº tarima</th>
+                                    <th>Calibre</th>
+                                    <th>Nro. jabas</th>
+                                    <th>Pos. jabas tarimas</th>
+                                    <th>Pos. tarimas canasta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>LT001</td>
+                                    <td>01</td>
+                                    <td>6</td>
+                                    <td>50</td>
+                                    <td>1</td>
+                                    <td>1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <hr>
+
+                    <div class="form-group">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" name="proceso" class="custom-control-input" id="r1" value="1" checked>
+                            <label class="custom-control-label" for="r1">SIN HIDROCOOLER</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" name="proceso" class="custom-control-input" id="r2" value="2">
+                            <label class="custom-control-label" for="r2">CON HIDROCOOLER Y REPOSO</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" name="proceso" class="custom-control-input" id="r3" value="3">
+                            <label class="custom-control-label" for="r3">CON HIDROCOOLER SIN REPOSO</label>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div id="infoProceso">
+                        <p><strong>Modo:</strong> SIN HIDROCOOLER</p>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Temperatura Pulpa Inicial</label>
+                            <input type="number" class="form-control">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>Temperatura Pulpa Final</label>
+                            <input type="number" class="form-control">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-success">Guardar</button>
+                    <button class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="resorce/plugins/jquery/jquery.min.js"></script>
+    <script src="resorce/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="resorce/dist/js/adminlte.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+    <script>
+        $(function () {
+
+            $(".canasta").draggable({
+                revert: "invalid",
+                helper: "clone"
+            });
+
+            $(".tank-body").droppable({
+                accept: ".canasta",
+                hoverClass: "zona-hover",
+                drop: function (event, ui) {
+                    var tinaCard = $(this).closest(".tina-card");
+                    var num = ui.draggable.data("id");
+                    tinaCard.addClass("tina-activa");
+                    tinaCard.find(".tina-status").html("CANASTA " + num);
+                }
+            });
+
+            $(".tina-card").click(function () {
+                $("#aperturarModal").modal("show");
+            });
+
+            $("input[name='proceso']").change(function () {
+
+                var valor = $(this).val();
+
+                if (valor == "1") {
+                    $("#infoProceso").html("<p><strong>Modo:</strong> SIN HIDROCOOLER</p>");
+                }
+
+                if (valor == "2") {
+
+                    let ahora = new Date();
+                    let inicio = ahora.toISOString().slice(0, 16);
+                    let fin = new Date(ahora.getTime() + (75 * 60000));
+                    let finFormat = fin.toISOString().slice(0, 16);
+
+                    $("#infoProceso").html(`
+                        <div class="row">
+
+                            <div class="col-md-4 mb-2">
+                                <label>Tiempo restante</label>
+                                <input type="text" class="form-control" value="75 min" readonly>
+                            </div>
+
+                            <div class="col-md-4 mb-2">
+                                <label>Inicio Hidrotérmico</label>
+                                <input type="datetime-local" class="form-control" value="${inicio}">
+                            </div>
+
+                            <div class="col-md-4 mb-2">
+                                <label>Fin Hidrotérmico</label>
+                                <input type="datetime-local" class="form-control" value="${finFormat}">
+                            </div>
+
+                            <div class="col-md-4 mb-2">
+                                <label>Inicio Reposo</label>
+                                <input type="datetime-local" class="form-control">
+                            </div>
+
+                            <div class="col-md-4 mb-2">
+                                <label>Fin Reposo</label>
+                                <input type="datetime-local" class="form-control">
+                            </div>
+
+                            <div class="col-md-4 mb-2">
+                                <label>Hora de salida</label>
+                                <input type="datetime-local" class="form-control">
+                            </div>
+
+
+                            <div class="col-md-4 mb-2">
+                                <label>Inicio Frío</label>
+                                <input type="datetime-local" class="form-control">
+                            </div>
+
+                            <div class="col-md-4 mb-2">
+                                <label>Fin Frío</label>
+                                <input type="datetime-local" class="form-control">
+                            </div>
+
+                        </div>
+                    `);
+                }
+
+                if (valor == "3") {
+                    $("#infoProceso").html("<p><strong>Modo:</strong> CON HIDROCOOLER SIN REPOSO</p>");
+                }
+
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,984 @@
+<html style="height: auto;">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Blank Page</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="resorce/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="resorce/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="resorce/plugins/select2/css/select2.min.css">
+
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="resorce/plugins/daterangepicker/daterangepicker.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="resorce/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="resorce/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <style>
+        .tarima-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .tarima-item {
+            padding: 15px;
+            border: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        .columnas-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .columna {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .casilla {
+            width: 60px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+
+
+        .small-box {
+            height: 35px;
+        }
+    </style>
+</head>
+
+<body class="sidebar-mini sidebar-collapse" style="height: auto;">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="resorce/index3.html" class="brand-link">
+                <img src="resorce/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">AdminLTE 3</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="resorce/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Alexander Pierce</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-warning"></i>
+                                <p>Abastecimiento</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="hidro.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Hidrotérmico</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="min-height: 1364.81px;">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Abastecimiento</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Abastecimiento</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+
+                <!-- Default box -->
+                <div class="card">
+
+                    <div class="card-header">
+                        <h3 class="card-title">Proceso Abastecimiento</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
+                                title="Collapse">
+                                <i class="fas fa-minus"></i></button>
+                            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip"
+                                title="Remove">
+                                <i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-12 col-sm-3">
+                                <div class="form-group">
+                                    <div class="select2-purple">
+                                        <label class="text-info">CLIENTE</label>
+                                        <select class="select2" multiple="multiple" data-placeholder="Cliente"
+                                            style="width: 100%;">
+                                            <option>AGROPALL</option>
+                                            <option>FRUTARA</option>
+                                            <option>LIMAGRO</option>
+                                            <option>GOLDEN</option>
+                                            <option>ESTRATÉGICAS</option>
+                                            <option>MOMPE</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-3">
+                                <div class="form-group">
+                                    <div class="select2-purple">
+                                        <label class="text-info">TIPO</label>
+                                        <select class="select2" data-placeholder="tipo" style="width:100%;">
+                                            <option>CNV</option>
+                                            <option>ORG</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-3">
+                                <div class="form-group">
+                                    <div class="select2-purple">
+                                        <label class="text-info">LOTE</label>
+                                        <select class="select2" data-placeholder="tipo" style="width: 100%;">
+                                            <option>L001</option>
+                                            <option>L002</option>
+                                            <option>L003</option>
+                                            <option>L004</option>
+                                            <option>L005</option>
+                                            <option>L006</option>
+                                            <option>L007</option>
+                                            <option>L008</option>
+                                            <option>L009</option>
+                                            <option>L010</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-3">
+                                <div class="form-group">
+                                    <div class="select2-purple">
+                                        <label class="text-info">CALIBRE</label>
+                                        <select class="select2" multiple="multiple" data-placeholder="Calibre"
+                                            data-dropdown-css-class="select2-purple" style="width: 100%;">
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>12</option>
+                                            <option>14</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-3">
+                                <div class="form-group">
+                                    <div class="select2-purple">
+                                        <label class="text-info">VARIEDAD</label>
+                                        <select class="select2" data-placeholder="Seleccionar Variedad"
+                                            style="width: 100%;">
+                                            <option>KENT</option>
+                                            <option>ATAULFO</option>
+                                            <option>EDWARD</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-12 col-sm-3">
+                                <div class="form-group">
+                                    <label class="text-info">FECHA COSECHA</label>
+
+                                    <div class="input-group">
+                                        <button type="button" class="btn btn-default float-right" id="daterange-btn">
+                                            <i class="far fa-calendar-alt"></i> Seleccionar Fecha
+                                            <i class="fas fa-caret-down"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-3">
+                                <div class="form-group">
+                                    <label class="text-info">FECHA TRATAMIENTO</label>
+
+                                    <div class="input-group">
+                                        <button type="button" class="btn btn-default float-right" id="date-tratamiento">
+                                            <i class="far fa-calendar-alt"></i> Seleccionar Fecha
+                                            <i class="fas fa-caret-down"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Cliente</th>
+                                        <th>Tipo</th>
+                                        <th>Lote</th>
+                                        <th>Calibre</th>
+                                        <th>Cantidad Jab</th>
+                                        <th>Variedad</th>
+                                        <th>Fecha Cosecha</th>
+                                        <th>Fecha Tramaiento</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>FRUTARA</td>
+                                        <td>CNV</td>
+                                        <td>L001</td>
+                                        <td>12</td>
+                                        <td>200</td>
+                                        <td>KENT</td>
+                                        <td>14/02/2026</td>
+                                        <td>14/02/2026</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-xs btn-info" data-toggle="modal"
+                                                    data-target="#modal-xl">Abastecer</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>FRUTARA</td>
+                                        <td>CNV</td>
+                                        <td>L001</td>
+                                        <td>12</td>
+                                        <td>180</td>
+                                        <td>KENT</td>
+                                        <td>14/02/2026</td>
+                                        <td>14/02/2026</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-xs btn-info" data-toggle="modal"
+                                                    data-target="#modal-xl">Abastecer</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>FRUTARA</td>
+                                        <td>CNV</td>
+                                        <td>L001</td>
+                                        <td>12</td>
+                                        <td>180</td>
+                                        <td>KENT</td>
+                                        <td>14/02/2026</td>
+                                        <td>14/02/2026</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-xs btn-info" data-toggle="modal"
+                                                    data-target="#modal-xl">Abastecer</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        Footer
+                    </div>
+                    <!-- /.card-footer-->
+                </div>
+                <!-- /.card -->
+
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 3.0.0
+            </div>
+            <strong>Copyright © 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+            reserved.
+        </footer>
+
+
+        <div class="modal fade" id="modal-xl">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+
+                    <!-- HEADER -->
+                    <div class="modal-header bg-primary text-white">
+                        <h4 class="modal-title">Proceso Abastecimiento</h4>
+                        <button type="button" class="close text-white" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+
+                    <!-- BODY -->
+                    <div class="modal-body">
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs nav-justified" id="customTabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active font-weight-bold" id="tab2-tab" data-toggle="tab" href="#tab2"
+                                    role="tab">
+                                    Grilla
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" id="tab1-tab" data-toggle="tab" href="#tab1"
+                                    role="tab">
+                                    Filtros
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" id="tab3-tab" data-toggle="tab" href="#tab3"
+                                    role="tab">
+                                    Otro
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab content -->
+                        <div class="tab-content mt-3">
+
+                            <!-- TAB 2 - Grilla (AHORA ACTIVO) -->
+                            <div class="tab-pane fade show active" id="tab2" role="tabpanel">
+                                <div class="container-fluid mt-3">
+
+                                    <div class="row justify-content-center">
+
+                                        <div class="col-md-8">
+
+                                            <div class="row">
+                                                <!-- SELECT TARIMA -->
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="text-info">TARIMA</label>
+                                                        <select class="form-control select2" style="width:100%;">
+                                                            <option value="">Selecciona una Tarima</option>
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                            <option>6</option>
+                                                            <option>7</option>
+                                                            <option>8</option>
+                                                            <option>9</option>
+                                                            <option>10</option>
+                                                            <option>11</option>
+                                                            <option>12</option>
+                                                            <option>13</option>
+                                                            <option>14</option>
+                                                            <option>15</option>
+                                                            <option>16</option>
+                                                            <option>17</option>
+                                                            <option>3</option>
+                                                            <option>18</option>
+                                                            <option>19</option>
+                                                            <option>20</option>
+                                                            <option>21</option>
+                                                            <option>22</option>
+                                                            <option>23</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <!-- SELECT LINEA -->
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="text-info">Calibre</label>
+                                                        <select class="form-control select2" style="width:100%;">
+                                                            <option value="">Selecciona un Calibre</option>
+                                                            <option>5</option>
+                                                            <option>6</option>
+                                                            <option>7</option>
+                                                            <option>8</option>
+                                                            <option>9</option>
+                                                            <option>10</option>
+                                                            <option>11</option>
+                                                            <option>12</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-body">
+
+                                                    <div class="container-fluid mt-3">
+                                                        <h5 class="text-primary text-center mb-3">Mapa de Zonas de
+                                                            Reposo de Tarimas</h5>
+
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-md-8">
+                                                                <div class="card">
+                                                                    <div class="card-body">
+
+                                                                        <!-- Contenedor de grilla -->
+                                                                        <div class="d-flex flex-wrap"
+                                                                            style="gap:5px; justify-content:center;">
+
+                                                                            <!-- Fila 1 -->
+                                                                            <div class="zona bg-secondary text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">1</div>
+                                                                            <div class="zona bg-success text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">2</div>
+                                                                            <div class="zona bg-secondary text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">3</div>
+                                                                            <div class="zona bg-success text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">4</div>
+                                                                            <div class="zona bg-success text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">5</div>
+                                                                            <div class="zona bg-secondary text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">6</div>
+
+                                                                            <!-- Fila 2 -->
+                                                                            <div class="zona bg-success text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">7</div>
+                                                                            <div class="zona bg-secondary text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">8</div>
+                                                                            <div class="zona bg-success text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">9</div>
+                                                                            <div class="zona bg-secondary text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">10
+                                                                            </div>
+                                                                            <div class="zona bg-success text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">11
+                                                                            </div>
+                                                                            <div class="zona bg-secondary text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">12
+                                                                            </div>
+
+                                                                            <!-- Fila 3 -->
+                                                                            <div class="zona bg-secondary text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">13
+                                                                            </div>
+                                                                            <div class="zona bg-success text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">14
+                                                                            </div>
+                                                                            <div class="zona bg-success text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">15
+                                                                            </div>
+                                                                            <div class="zona bg-secondary text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">16
+                                                                            </div>
+                                                                            <div class="zona bg-success text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">17
+                                                                            </div>
+                                                                            <div class="zona bg-secondary text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">18
+                                                                            </div>
+
+                                                                            <!-- Fila 4 -->
+                                                                            <div class="zona bg-success text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">19
+                                                                            </div>
+                                                                            <div class="zona bg-secondary text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">20
+                                                                            </div>
+                                                                            <div class="zona bg-secondary text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">21
+                                                                            </div>
+                                                                            <div class="zona bg-success text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">22
+                                                                            </div>
+                                                                            <div class="zona bg-success text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">23
+                                                                            </div>
+                                                                            <div class="zona bg-secondary text-white d-flex align-items-center justify-content-center"
+                                                                                style="width:60px; height:60px;">24
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- TAB 1 - Filtros -->
+                            <div class="tab-pane fade" id="tab1" role="tabpanel">
+
+                                <h5 class="text-primary">Detalle Abastecimiento</h5>
+                                <p>Aquí puedes mostrar por calibre y tarima</p>
+
+                                <div class="row">
+
+                                    <!-- INVOICE -->
+                                    <div class="col-12 mt-2">
+                                        <div class="invoice p-3 mb-3">
+
+                                            <!-- title row -->
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h4>
+                                                        <i class="fas fa-pallet"></i> Tarima, #678.
+                                                        <small class="float-right">Fecha Tratamiento: 2/10/2014</small>
+                                                    </h4>
+                                                </div>
+                                            </div>
+
+                                            <!-- info row -->
+                                            <div class="row invoice-info">
+                                                <div class="col-sm-4 invoice-col">
+                                                    Linea:
+                                                    <address>
+                                                        <div class="form-group">
+                                                            <select class="custom-select form-control-sm w-100">
+                                                                <option>Empaque USA 1</option>
+                                                                <option>Empaque USA 2</option>
+                                                            </select>
+                                                        </div>
+                                                        <strong>Linea 1</strong><br><br>
+                                                        Total Jabas: <strong id="cantidad_real"></strong><br>
+                                                    </address>
+                                                </div>
+
+                                                <div class="col-sm-4 invoice-col">
+                                                    De
+                                                    <address>
+                                                        <strong>Golden</strong><br>
+                                                        ORG<br>
+                                                        Jabas Saldo: <strong>15</strong><br>
+                                                    </address>
+                                                </div>
+
+                                                <div class="col-sm-4 invoice-col">
+                                                    <b>Lote #0612</b><br><br>
+                                                    <b>Hora Inicio:</b> 19:43:00<br>
+                                                    <b>Calibre:</b> 10<br>
+                                                    <b>Hora Fin:</b> 19:43:00<br>
+                                                </div>
+                                            </div>
+
+                                            <!-- Jabas a abastecer -->
+                                            <div class="row mt-3">
+                                                <div class="col-12 col-md-6">
+                                                    <p class="lead">Jabas a abastecer</p>
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th style="width:50%">Cantidad a abastecer:</th>
+                                                                    <td><input type="number" id="cantidad-jaba" min="1"
+                                                                            class="form-control"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <button class="btn btn-info">
+                                                                            Iniciar Abastecimiento
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!-- TAB 3 -->
+                            <div class="tab-pane fade" id="tab3" role="tabpanel">
+                                <div class="p-3">
+                                    <div class="content-wrapper">
+                                        <section class="content pt-3">
+                                            <div class="container-fluid">
+
+                                                <div class="row">
+
+                                                    <!-- ===================== -->
+                                                    <!-- TARIMA IZQUIERDA -->
+                                                    <!-- ===================== -->
+                                                    <div class="col-md-4">
+
+                                                        <div class="card">
+                                                            <div class="card-body text-center">
+
+                                                                <h6><strong>Parihuela 124</strong></h6>
+                                                                <small>10 Nuevas jabas</small>
+
+                                                                <div class="tarima-grid mt-3">
+
+                                                                    <div class="tarima-item bg-light">3</div>
+                                                                    <div class="tarima-item bg-light">2</div>
+                                                                    <div class="tarima-item bg-light">1</div>
+
+                                                                    <div class="tarima-item bg-success">6</div>
+                                                                    <div class="tarima-item bg-success">5</div>
+                                                                    <div class="tarima-item bg-light">4</div>
+
+                                                                </div>
+
+                                                                <p class="mt-2 font-weight-bold">TARIMA</p>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <!-- ===================== -->
+                                                    <!-- COLUMNAS DERECHA -->
+                                                    <!-- ===================== -->
+                                                    <div class="col-md-8">
+
+                                                        <div class="card">
+                                                            <div class="card-body">
+
+                                                                <h6 class="text-center font-weight-bold mb-3">
+                                                                    Columnas de la Parihuela
+                                                                </h6>
+
+                                                                <div class="columnas-container">
+
+                                                                    <!-- COLUMNA 6 -->
+                                                                    <div class="columna">
+                                                                        <div class="casilla bg-success">30</div>
+                                                                        <div class="casilla bg-success">29</div>
+                                                                        <div class="casilla bg-success">28</div>
+                                                                        <div class="casilla bg-success">27</div>
+                                                                        <div class="casilla bg-success">26</div>
+                                                                        <div class="casilla bg-success small-box">6
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- COLUMNA 3 -->
+                                                                    <div class="columna">
+                                                                        <div class="casilla bg-light">15</div>
+                                                                        <div class="casilla bg-light">14</div>
+                                                                        <div class="casilla bg-light">13</div>
+                                                                        <div class="casilla bg-light">12</div>
+                                                                        <div class="casilla bg-light">11</div>
+                                                                        <div class="casilla bg-success small-box">3
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- COLUMNA 5 -->
+                                                                    <div class="columna">
+                                                                        <div class="casilla bg-success">25</div>
+                                                                        <div class="casilla bg-success">24</div>
+                                                                        <div class="casilla bg-success">23</div>
+                                                                        <div class="casilla bg-success">22</div>
+                                                                        <div class="casilla bg-success">21</div>
+                                                                        <div class="casilla bg-success small-box">5
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- COLUMNA 2 -->
+                                                                    <div class="columna">
+                                                                        <div class="casilla bg-light">10</div>
+                                                                        <div class="casilla bg-light">9</div>
+                                                                        <div class="casilla bg-light">8</div>
+                                                                        <div class="casilla bg-light">7</div>
+                                                                        <div class="casilla bg-light">6</div>
+                                                                        <div class="casilla bg-success small-box">2
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- COLUMNA 4 -->
+                                                                    <div class="columna">
+                                                                        <div class="casilla bg-light">20</div>
+                                                                        <div class="casilla bg-light">19</div>
+                                                                        <div class="casilla bg-light">18</div>
+                                                                        <div class="casilla bg-light">17</div>
+                                                                        <div class="casilla bg-light">16</div>
+                                                                        <div class="casilla bg-success small-box">4
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- COLUMNA 1 -->
+                                                                    <div class="columna">
+                                                                        <div class="casilla bg-light">5</div>
+                                                                        <div class="casilla bg-light">4</div>
+                                                                        <div class="casilla bg-light">3</div>
+                                                                        <div class="casilla bg-light">2</div>
+                                                                        <div class="casilla bg-light">1</div>
+                                                                        <div class="casilla bg-success small-box">1
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="text-center mt-4">
+                                                                    <button class="btn btn-success">
+                                                                        Marcar todos los faltantes
+                                                                    </button>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- FOOTER -->
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Cerrar
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            Guardar cambios
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ./wrapper -->
+
+        <!-- jQuery -->
+        <script src="resorce/plugins/jquery/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="resorce/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Moment (PRIMERO) -->
+        <script src="resorce/plugins/moment/moment.min.js"></script>
+
+        <!-- Date Range Picker (DESPUÉS de moment) -->
+        <script src="resorce/plugins/daterangepicker/daterangepicker.js"></script>
+
+        <!-- InputMask -->
+        <script src="resorce/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+
+        <!-- Select2 -->
+        <script src="resorce/plugins/select2/js/select2.full.min.js"></script>
+
+        <!-- AdminLTE -->
+        <script src="resorce/dist/js/adminlte.min.js"></script>
+        <script src="resorce/dist/js/demo.js"></script>
+
+        <script src="js/ap.js"></script>
+</body>
+
+</html> 
+
+<script>
+    $(function () {
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+
+        //Datemask dd/mm/yyyy
+        $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+        //Datemask2 mm/dd/yyyy
+        $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+        //Money Euro
+        $('[data-mask]').inputmask()
+
+        //Date range picker
+        $('#reservation').daterangepicker()
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            locale: {
+                format: 'MM/DD/YYYY hh:mm A'
+            }
+        })
+
+        $('#daterange-btn').daterangepicker(
+            {
+                ranges: {
+                    'Hoy': [moment(), moment()],
+                    'Ayer': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Últimos 7 Días': [moment().subtract(6, 'days'), moment()],
+                    'Últimos 30 Días': [moment().subtract(29, 'days'), moment()],
+                    'Este Mes': [moment().startOf('month'), moment().endOf('month')],
+                    'Mes Pasado': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment(),
+                locale: {
+                    format: 'DD/MM/YYYY',
+                    separator: ' - ',
+                    applyLabel: 'Aplicar',
+                    cancelLabel: 'Cancelar',
+                    fromLabel: 'Desde',
+                    toLabel: 'Hasta',
+                    customRangeLabel: 'Personalizado',
+                    weekLabel: 'Sem',
+                    daysOfWeek: [
+                        'Dom',
+                        'Lun',
+                        'Mar',
+                        'Mié',
+                        'Jue',
+                        'Vie',
+                        'Sáb'
+                    ],
+                    monthNames: [
+                        'Enero',
+                        'Febrero',
+                        'Marzo',
+                        'Abril',
+                        'Mayo',
+                        'Junio',
+                        'Julio',
+                        'Agosto',
+                        'Septiembre',
+                        'Octubre',
+                        'Noviembre',
+                        'Diciembre'
+                    ],
+                    firstDay: 1
+                }
+            },
+            function (start, end) {
+                $('#daterange-btn span').html(
+                    start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY')
+                );
+            });
+
+        $('#date-tratamiento').daterangepicker(
+            {
+                ranges: {
+                    'Hoy': [moment(), moment()],
+                    'Ayer': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Últimos 7 Días': [moment().subtract(6, 'days'), moment()],
+                    'Últimos 30 Días': [moment().subtract(29, 'days'), moment()],
+                    'Este Mes': [moment().startOf('month'), moment().endOf('month')],
+                    'Mes Pasado': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                startDate: moment().subtract(7, 'days'),
+                endDate: moment(),
+                locale: {
+                    format: 'DD/MM/YYYY',
+                    separator: ' - ',
+                    applyLabel: 'Aplicar',
+                    cancelLabel: 'Cancelar',
+                    fromLabel: 'Desde',
+                    toLabel: 'Hasta',
+                    customRangeLabel: 'Personalizado',
+                    weekLabel: 'Sem',
+                    daysOfWeek: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
+                    monthNames: [
+                        'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                        'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+                    ],
+                    firstDay: 1
+                }
+            },
+            function (start, end) {
+                $('#date-tratamiento span').html(
+                    start.format('DD/MM/YYYY') + ' - ' + end.format('DD/MM/YYYY')
+                );
+            });
+
+
+        //Timepicker
+        $('#timepicker').datetimepicker({
+            format: 'LT'
+        })
+
+        //Bootstrap Duallistbox
+        $('.duallistbox').bootstrapDualListbox()
+
+        //Colorpicker
+        $('.my-colorpicker1').colorpicker()
+        //color picker with addon
+        $('.my-colorpicker2').colorpicker()
+
+        $('.my-colorpicker2').on('colorpickerChange', function (event) {
+            $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+        });
+
+        $("input[data-bootstrap-switch]").each(function () {
+            $(this).bootstrapSwitch('state', $(this).prop('checked'));
+        });
+
+    })
+</script>
