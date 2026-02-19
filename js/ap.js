@@ -198,4 +198,5 @@ document.addEventListener("DOMContentLoaded", function() {
     // Mostrar la primera página al cargar
     showPage(1);
     
+    
 });
