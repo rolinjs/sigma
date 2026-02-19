@@ -277,73 +277,135 @@
                                 </div>
                             </div>
 
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Cliente</th>
-                                        <th>Tipo</th>
-                                        <th>Lote</th>
-                                        <th>Calibre</th>
-                                        <th>Cantidad Jab</th>
-                                        <th>Variedad</th>
-                                        <th>Fecha Cosecha</th>
-                                        <th>Fecha Tramaiento</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>FRUTARA</td>
-                                        <td>CNV</td>
-                                        <td>L001</td>
-                                        <td>12</td>
-                                        <td>200</td>
-                                        <td>KENT</td>
-                                        <td>14/02/2026</td>
-                                        <td>14/02/2026</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-xs btn-info" data-toggle="modal"
-                                                    data-target="#modal-xl">Abastecer</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>FRUTARA</td>
-                                        <td>CNV</td>
-                                        <td>L001</td>
-                                        <td>12</td>
-                                        <td>180</td>
-                                        <td>KENT</td>
-                                        <td>14/02/2026</td>
-                                        <td>14/02/2026</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-xs btn-info" data-toggle="modal"
-                                                    data-target="#modal-xl">Abastecer</button>
-                                            </div>
-                                        </td>
-                                    </tr>
+                            <!-- TABLA -->
 
-                                    <tr>
-                                        <td>FRUTARA</td>
-                                        <td>CNV</td>
-                                        <td>L001</td>
-                                        <td>12</td>
-                                        <td>180</td>
-                                        <td>KENT</td>
-                                        <td>14/02/2026</td>
-                                        <td>14/02/2026</td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-xs btn-info" data-toggle="modal"
-                                                    data-target="#modal-xl">Abastecer</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
 
+                            <div class="table-responsive mt-3" style="max-height: 500px; overflow: auto;">
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th style="max-width: 70px;">COD.EXP</th>
+                                            <th>LOTE</th>
+                                            <th>VAR.</th>
+                                            <th style="max-width: 74px;">CATEGORIA</th>
+                                            <th style="max-width: 90px;">FECHA COSECHA</th>
+                                            <th style="max-width: 90px;">CANTIDAD DE JABAS</th>
+                                            <th style="max-width: 90px;">PESO NETO KG.</th>
+                                            <th style="max-width: 90px;">PESO PROM. JABA</th>
+                                            <th style="max-width: 80px;">CODIGO PRODUCTOR</th>
+                                            <th style="max-width: 80px;">TOTAL JABAS</th>
+                                            <th style="max-width: 50px;">C-5</th>
+                                            <th style="max-width: 50px;">C-6</th>
+                                            <th style="max-width: 50px;">C-7</th>
+                                            <th style="max-width: 50px;">C-8</th>
+                                            <th style="max-width: 50px;">C-9</th>
+                                            <th style="max-width: 50px;">C-10</th>
+                                            <th style="max-width: 50px;">C-12</th>
+                                            <th style="max-width: 50px;">C-14</th>
+                                            <th style="max-width: 70px;">HT Time</th>
+                                            <th style="max-width: 70px;">Estado Empaque</th> <!-- NUEVA COLUMNA -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>17</td>
+                                            <td>2431</td>
+                                            <td>KENT</td>
+                                            <td>1</td>
+                                            <td>5-Feb-26</td>
+                                            <td>160</td>
+                                            <td>3,354.5</td>
+                                            <td>20.97</td>
+                                            <td>002-02243-01</td>
+                                            <td>167</td>
+                                            <td>1</td>
+                                            <td>22</td>
+                                            <td>42</td>
+                                            <td>61</td>
+                                            <td>22</td>
+                                            <td>17</td>
+                                            <td>2</td>
+                                            <td>-</td>
+                                            <td>02:15</td>
+                                            <td><span style="display:inline-block;width:18px;height:18px;border-radius:50%;background-color:#28a745;"></span></td> <!-- Verde: listo para empacar -->
+                                        </tr>
+                                        <tr>
+                                            <td>17</td>
+                                            <td>2432</td>
+                                            <td>KENT</td>
+                                            <td>1</td>
+                                            <td>5-Feb-26</td>
+                                            <td>196</td>
+                                            <td>3,938.0</td>
+                                            <td>20.09</td>
+                                            <td>002-01350-01</td>
+                                            <td>204</td>
+                                            <td>-</td>
+                                            <td>17</td>
+                                            <td>49</td>
+                                            <td>77</td>
+                                            <td>30</td>
+                                            <td>27</td>
+                                            <td>4</td>
+                                            <td>-</td>
+                                            <td>03:10</td>
+                                            <td><span style="display:inline-block;width:18px;height:18px;border-radius:50%;background-color:#28a745;"></span></td> <!-- Verde: listo para empacar -->
+                                        </tr>
+                                        <tr>
+                                            <td>17</td>
+                                            <td>2433</td>
+                                            <td>KENT</td>
+                                            <td>1</td>
+                                            <td>5-Feb-26</td>
+                                            <td>120</td>
+                                            <td>2,348.0</td>
+                                            <td>19.57</td>
+                                            <td>002-02243-01</td>
+                                            <td>125</td>
+                                            <td>-</td>
+                                            <td>9</td>
+                                            <td>24</td>
+                                            <td>50</td>
+                                            <td>20</td>
+                                            <td>19</td>
+                                            <td>3</td>
+                                            <td>-</td>
+                                            <td>01:45</td>
+                                            <td><span style="display:inline-block;width:18px;height:18px;border-radius:50%;background-color:#dc3545;"></span></td> <!-- Rojo: retrasado -->
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="5">TOTAL</th>
+                                            <th>476</th>
+                                            <th>9,640.50</th>
+                                            <th>20.5</th>
+                                            <th></th>
+                                            <th>496</th>
+                                            <th>1</th>
+                                            <th>48</th>
+                                            <th>115</th>
+                                            <th>188</th>
+                                            <th>72</th>
+                                            <th>63</th>
+                                            <th>9</th>
+                                            <th>-</th>
+                                            <th>-</th>
+                                            <th><span style="display:inline-block;width:18px;height:18px;border-radius:50%;background-color:#28a745;"></span></th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+
+                            </div>
+
+
+
+                            <!-- Controles de paginación -->
+                            <div class="d-flex justify-content-between align-items-center mt-2">
+                                <button id="prev-btn" class="btn btn-secondary btn-sm">Anterior</button>
+                                <span>Página <span id="current-page">1</span> de <span id="total-pages">1</span></span>
+                                <button id="next-btn" class="btn btn-secondary btn-sm">Siguiente</button>
+                            </div>
                         </div>
                     </div>
 
@@ -609,18 +671,28 @@
                                                                 <option>Empaque USA 2</option>
                                                             </select>
                                                         </div>
-                                                        <input type="text" value="Linea 1" class="form-control form-control-sm mb-2" readonly><br>
-                                                        Total Jabas: <input type="number" id="cantidad_real" value="30" class="form-control form-control-sm" readonly>
+                                                        Linea
+                                                        <input type="text" value="Linea 1"
+                                                            class="form-control form-control-sm mb-2" readonly><br>
+                                                        Total Jabas: <input type="number" id="cantidad_real" value="30"
+                                                            class="form-control form-control-sm" readonly>
                                                     </address>
                                                 </div>
 
                                                 <div class="col-sm-4 invoice-col">
                                                     De
                                                     <address>
-                                                        <input type="text" value="Golden" class="form-control form-control-sm mb-1" readonly><br>
-                                                        ORG<br>
-                                                        Jabas Saldo: 
-                                                        <input type="number" id="jabas_saldo" value="15" class="form-control form-control-sm d-inline-block" style="width:80px;" readonly>
+                                                        <input type="text" value="Golden"
+                                                            class="form-control form-control-sm mb-1" readonly><br>
+                                                        <p>
+                                                            Tipo
+                                                            <input type="text" value="ORG"
+                                                                class="form-control form-control-sm mb-1" readonly><br>
+                                                        </p>
+                                                        Jabas Saldo:
+                                                        <input type="number" id="jabas_saldo" value="15"
+                                                            class="form-control form-control-sm d-inline-block"
+                                                            style="width:80px;" readonly>
                                                     </address>
                                                 </div>
 
@@ -641,7 +713,8 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <th style="width:50%">Cantidad a abastecer:</th>
-                                                                    <td><input type="number" id="cantidad-jaba" min="1" class="form-control"></td>
+                                                                    <td><input type="number" id="cantidad-jaba" min="1"
+                                                                            class="form-control"></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>

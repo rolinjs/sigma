@@ -160,4 +160,42 @@ document.addEventListener("DOMContentLoaded", function() {
     // ===== Al cargar la página, repintar zonas completadas si hay alguna =====
     repintarCompletadas();
 
+    const rowsPerPage = 10; // filas por página
+    const table = document.getElementById("example1");
+    const tbody = document.getElementById("table-body");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    const totalPages = Math.ceil(rows.length / rowsPerPage);
+    let currentPage = 1;
+
+    const currentPageSpan = document.getElementById("current-page");
+    const totalPagesSpan = document.getElementById("total-pages");
+    totalPagesSpan.textContent = totalPages;
+
+    function showPage(page) {
+        currentPage = page;
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+
+        rows.forEach((row, index) => {
+            row.style.display = (index >= start && index < end) ? "" : "none";
+        });
+
+        currentPageSpan.textContent = currentPage;
+
+        // Deshabilitar botones si es la primera o última página
+        document.getElementById("prev-btn").disabled = currentPage === 1;
+        document.getElementById("next-btn").disabled = currentPage === totalPages;
+    }
+
+    // Botones
+    document.getElementById("prev-btn").addEventListener("click", () => {
+        if (currentPage > 1) showPage(currentPage - 1);
+    });
+    document.getElementById("next-btn").addEventListener("click", () => {
+        if (currentPage < totalPages) showPage(currentPage + 1);
+    });
+
+    // Mostrar la primera página al cargar
+    showPage(1);
+    
 });
