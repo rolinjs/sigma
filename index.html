@@ -27,7 +27,8 @@
     <style>
         /* Opcional: resaltado visual de zona seleccionada */
         .zona-seleccionada {
-            border: 3px solid #007bff; /* azul */
+            border: 3px solid #007bff;
+            /* azul */
             box-shadow: 0 0 10px #007bff;
         }
 
@@ -369,7 +370,9 @@
 
 
         <div class="modal fade" id="modal-xl">
+
             <div class="modal-dialog modal-xl">
+
                 <div class="modal-content">
 
                     <!-- HEADER -->
@@ -606,17 +609,18 @@
                                                                 <option>Empaque USA 2</option>
                                                             </select>
                                                         </div>
-                                                        <strong>Linea 1</strong><br><br>
-                                                        Total Jabas: <strong id="cantidad_real"></strong><br>
+                                                        <input type="text" value="Linea 1" class="form-control form-control-sm mb-2" readonly><br>
+                                                        Total Jabas: <input type="number" id="cantidad_real" value="30" class="form-control form-control-sm" readonly>
                                                     </address>
                                                 </div>
 
                                                 <div class="col-sm-4 invoice-col">
                                                     De
                                                     <address>
-                                                        <strong>Golden</strong><br>
+                                                        <input type="text" value="Golden" class="form-control form-control-sm mb-1" readonly><br>
                                                         ORG<br>
-                                                        Jabas Saldo: <strong>15</strong><br>
+                                                        Jabas Saldo: 
+                                                        <input type="number" id="jabas_saldo" value="15" class="form-control form-control-sm d-inline-block" style="width:80px;" readonly>
                                                     </address>
                                                 </div>
 
@@ -637,8 +641,7 @@
                                                             <tbody>
                                                                 <tr>
                                                                     <th style="width:50%">Cantidad a abastecer:</th>
-                                                                    <td><input type="number" id="cantidad-jaba" min="1"
-                                                                            class="form-control"></td>
+                                                                    <td><input type="number" id="cantidad-jaba" min="1" class="form-control"></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>
@@ -659,6 +662,7 @@
                                 </div>
 
                             </div>
+
 
                             <!-- TAB 3 -->
                             <div class="tab-pane fade" id="tab3" role="tabpanel">
@@ -846,7 +850,7 @@
         <script src="js/ap.js"></script>
 </body>
 
-</html> 
+</html>
 
 <script>
     $(function () {
@@ -987,7 +991,7 @@
         });
 
         // Cambiar a la pestaña Filtros al hacer click en cualquier cuadro de Mapa de Zonas
-        $('#modal-xl').on('click', '.zona', function() {
+        $('#modal-xl').on('click', '.zona', function () {
             // Cambia la pestaña activa
             $('#customTabs a[href="#tab1"]').tab('show');
         });
@@ -995,7 +999,7 @@
         // Cuando se hace click en un cuadro de la grilla
         //
 
-       
+
 
 
     })

@@ -8,14 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const iniciarBtn = document.querySelector("#tab1 button.btn-info");
     const inputCantidad = document.getElementById("cantidad-jaba");
 
-    // Creamos un label dinámico de Jabas Saldo justo después del texto
-    let saldoLabel = document.createElement("strong");
-    saldoLabel.textContent = "0";
-    saldoLabel.id = "jabas_saldo";
-    const invoiceCol = document.querySelector("#tab1 .invoice-col:nth-child(2) address");
-    invoiceCol.innerHTML = invoiceCol.innerHTML.replace("15", ""); // quitar el 15 estático
-    invoiceCol.appendChild(document.createTextNode(" ")); // espacio
-    invoiceCol.appendChild(saldoLabel);
+    // Usamos directamente el input de Jabas Saldo
+    const saldoLabel = document.getElementById("jabas_saldo");
 
     // Estado de cada tarima (asumimos 30 jabas por tarima)
     const tarimas = {};
@@ -73,10 +67,10 @@ document.addEventListener("DOMContentLoaded", function() {
             const zonaNum = this.textContent.trim();
 
             // Total Jabas siempre 30
-            cantidadReal.textContent = 30;
+            cantidadReal.value = 30;
 
             // Jabas Saldo según tarima
-            saldoLabel.textContent = tarimas[zonaNum];
+            saldoLabel.value = tarimas[zonaNum];
 
             // Limpiar input
             inputCantidad.value = "";
@@ -111,10 +105,10 @@ document.addEventListener("DOMContentLoaded", function() {
         tarimas[zonaNum] = restante;
 
         // Total Jabas siempre 30
-        cantidadReal.textContent = 30;
+        cantidadReal.value = 30;
 
-        // Jabas Saldo
-        saldoLabel.textContent = restante;
+        // Jabas Saldo dentro del input
+        saldoLabel.value = restante;
 
         // Colores de zona y botón según saldo
         actualizarBotonYColor(zonaSeleccionada, restante);
@@ -138,7 +132,8 @@ document.addEventListener("DOMContentLoaded", function() {
         let restante = tarimas[zonaNum] - (isNaN(cantidad) ? 0 : cantidad);
         if (restante < 0) restante = 0;
 
-        saldoLabel.textContent = restante;
+        // Actualizar saldo dentro del input
+        saldoLabel.value = restante;
 
         // Cambiar botón y color de zona dinámicamente
         actualizarBotonYColor(zonaSeleccionada, restante);
