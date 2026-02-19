@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const iniciarBtn = document.querySelector("#tab1 button.btn-info");
     const inputCantidad = document.getElementById("cantidad-jaba");
 
+    // Label de Jabas Saldo (último <strong> dentro de <address>)
+    const jabasSaldoLabel = document.querySelector("#tab1 .invoice-col address strong:last-of-type");
+
     // Estado de cada tarima (asumimos 30 jabas por tarima)
     const tarimas = {};
     zonas.forEach(z => tarimas[z.textContent.trim()] = 30);
@@ -44,12 +47,24 @@ document.addEventListener("DOMContentLoaded", function() {
             // Limpiar input
             inputCantidad.value = "";
 
+            // Actualizar label de Jabas Saldo según tarima
+            const zonaNum = this.textContent.trim();
+            const saldo = tarimas[zonaNum];
+            jabasSaldoLabel.textContent = saldo;
+
             // Cambiar a la pestaña Filtros
             document.querySelectorAll("#customTabs .nav-link").forEach(link => link.classList.remove("active"));
             document.querySelectorAll(".tab-pane").forEach(pane => pane.classList.remove("show", "active"));
 
             tab1Link.classList.add("active");
             tab1.classList.add("show", "active");
+
+            // Actualizar texto del botón según saldo
+            if (saldo === 0) {
+                iniciarBtn.textContent = "Guardar y Salir";
+            } else {
+                iniciarBtn.textContent = "Cerrar y Guardar";
+            }
 
         });
     });
@@ -65,20 +80,28 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         const zonaNum = zonaSeleccionada.textContent.trim();
-        const restante = tarimas[zonaNum] - cantidad;
+        let restante = tarimas[zonaNum] - cantidad;
+
+        if (restante < 0) restante = 0; // no permitir negativos
+
+        tarimas[zonaNum] = restante;
+
+        // Actualizar label de Jabas Saldo
+        jabasSaldoLabel.textContent = restante;
 
         // Pintar zona como abastecida parcialmente o total
-        if (restante <= 0) {
-            zonaSeleccionada.classList.remove("bg-secondary");
+        if (restante === 0) {
+            zonaSeleccionada.classList.remove("bg-secondary", "bg-warning");
             zonaSeleccionada.classList.add("bg-primary"); // completado
-            tarimas[zonaNum] = 0;
             iniciarBtn.textContent = "Guardar y Salir";
         } else {
-            tarimas[zonaNum] = restante;
-            zonaSeleccionada.classList.remove("bg-secondary");
+            zonaSeleccionada.classList.remove("bg-secondary", "bg-primary");
             zonaSeleccionada.classList.add("bg-warning"); // parcialmente abastecida
             iniciarBtn.textContent = "Cerrar y Guardar";
         }
+
+        // Limpiar input
+        inputCantidad.value = "";
 
         // Volver a la grilla
         irAGrilla();
