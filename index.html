@@ -25,6 +25,12 @@
     <!-- Bootstrap Color Picker -->
     <link rel="stylesheet" href="resorce/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
     <style>
+        /* Opcional: resaltado visual de zona seleccionada */
+        .zona-seleccionada {
+            border: 3px solid #007bff; /* azul */
+            box-shadow: 0 0 10px #007bff;
+        }
+
         .tarima-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -617,7 +623,7 @@
                                                 <div class="col-sm-4 invoice-col">
                                                     <b>Lote #0612</b><br><br>
                                                     <b>Hora Inicio:</b> 19:43:00<br>
-                                                    <b>Calibre:</b> 10<br>
+                                                    <b>Cantidad Jabas:</b> 30<br>
                                                     <b>Hora Fin:</b> 19:43:00<br>
                                                 </div>
                                             </div>
@@ -979,6 +985,18 @@
         $("input[data-bootstrap-switch]").each(function () {
             $(this).bootstrapSwitch('state', $(this).prop('checked'));
         });
+
+        // Cambiar a la pestaña Filtros al hacer click en cualquier cuadro de Mapa de Zonas
+        $('#modal-xl').on('click', '.zona', function() {
+            // Cambia la pestaña activa
+            $('#customTabs a[href="#tab1"]').tab('show');
+        });
+
+        // Cuando se hace click en un cuadro de la grilla
+        //
+
+       
+
 
     })
 </script>
