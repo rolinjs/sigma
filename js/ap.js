@@ -8,8 +8,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const iniciarBtn = document.querySelector("#tab1 button.btn-info");
     const inputCantidad = document.getElementById("cantidad-jaba");
 
-    // Label de Jabas Saldo (último <strong> dentro de <address>)
-    const jabasSaldoLabel = document.querySelector("#tab1 .invoice-col address strong:last-of-type");
+    // Creamos un label dinámico de Jabas Saldo justo después del texto
+    let saldoLabel = document.createElement("strong");
+    saldoLabel.textContent = "0";
+    saldoLabel.id = "jabas_saldo";
+    const invoiceCol = document.querySelector("#tab1 .invoice-col:nth-child(2) address");
+    invoiceCol.innerHTML = invoiceCol.innerHTML.replace("15", ""); // quitar el 15 estático
+    invoiceCol.appendChild(document.createTextNode(" ")); // espacio
+    invoiceCol.appendChild(saldoLabel);
 
     // Estado de cada tarima (asumimos 30 jabas por tarima)
     const tarimas = {};
@@ -22,54 +28,72 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Función para volver a la grilla
     function irAGrilla() {
-        // Quitar "active" de todas las tabs
         document.querySelectorAll("#customTabs .nav-link").forEach(link => link.classList.remove("active"));
         document.querySelectorAll(".tab-pane").forEach(pane => pane.classList.remove("show", "active"));
 
-        // Activar tab2
         document.getElementById("tab2-tab").classList.add("active");
         document.getElementById("tab2").classList.add("show", "active");
+    }
+
+    // Función para actualizar el botón y color de zona según saldo
+    function actualizarBotonYColor(zona, saldo) {
+        if (saldo === 0) {
+            zona.classList.remove("bg-secondary", "bg-warning");
+            zona.classList.add("bg-primary"); // completada azul
+            iniciarBtn.textContent = "Guardar y Salir";
+            iniciarBtn.classList.remove("btn-warning");
+            iniciarBtn.classList.add("btn-success");
+        } else {
+            zona.classList.remove("bg-secondary", "bg-primary");
+            zona.classList.add("bg-warning"); // parcialmente abastecida amarillo
+            iniciarBtn.textContent = "Cerrar y Guardar";
+            iniciarBtn.classList.remove("btn-success");
+            iniciarBtn.classList.add("btn-warning");
+        }
+    }
+
+    // ===== Función para repintar todas las zonas completadas =====
+    function repintarCompletadas() {
+        zonas.forEach(zona => {
+            const zonaNum = zona.textContent.trim();
+            if (tarimas[zonaNum] === 0) {
+                zona.classList.remove("bg-secondary", "bg-warning");
+                zona.classList.add("bg-primary"); // azul si completa
+            }
+        });
     }
 
     // Añadimos evento click a cada zona
     zonas.forEach(zona => {
         zona.addEventListener("click", function() {
 
-            // Limpiar selección previa
             limpiarSeleccion();
-
-            // Marcar esta zona
             this.classList.add("zona-seleccionada");
 
-            // Poner el número de la zona en "Total Jabas"
-            cantidadReal.textContent = this.textContent.trim();
+            const zonaNum = this.textContent.trim();
+
+            // Total Jabas siempre 30
+            cantidadReal.textContent = 30;
+
+            // Jabas Saldo según tarima
+            saldoLabel.textContent = tarimas[zonaNum];
 
             // Limpiar input
             inputCantidad.value = "";
 
-            // Actualizar label de Jabas Saldo según tarima
-            const zonaNum = this.textContent.trim();
-            const saldo = tarimas[zonaNum];
-            jabasSaldoLabel.textContent = saldo;
-
-            // Cambiar a la pestaña Filtros
+            // Cambiar a pestaña Filtros
             document.querySelectorAll("#customTabs .nav-link").forEach(link => link.classList.remove("active"));
             document.querySelectorAll(".tab-pane").forEach(pane => pane.classList.remove("show", "active"));
 
             tab1Link.classList.add("active");
             tab1.classList.add("show", "active");
 
-            // Actualizar texto del botón según saldo
-            if (saldo === 0) {
-                iniciarBtn.textContent = "Guardar y Salir";
-            } else {
-                iniciarBtn.textContent = "Cerrar y Guardar";
-            }
-
+            // Actualizar botón según saldo
+            actualizarBotonYColor(this, tarimas[zonaNum]);
         });
     });
 
-    // Lógica del botón "Iniciar Abastecimiento"
+    // ===== Lógica del botón =====
     iniciarBtn.addEventListener("click", function() {
         const cantidad = parseInt(inputCantidad.value);
         const zonaSeleccionada = document.querySelector(".zona-seleccionada");
@@ -82,29 +106,63 @@ document.addEventListener("DOMContentLoaded", function() {
         const zonaNum = zonaSeleccionada.textContent.trim();
         let restante = tarimas[zonaNum] - cantidad;
 
-        if (restante < 0) restante = 0; // no permitir negativos
+        if (restante < 0) restante = 0;
 
         tarimas[zonaNum] = restante;
 
-        // Actualizar label de Jabas Saldo
-        jabasSaldoLabel.textContent = restante;
+        // Total Jabas siempre 30
+        cantidadReal.textContent = 30;
 
-        // Pintar zona como abastecida parcialmente o total
-        if (restante === 0) {
-            zonaSeleccionada.classList.remove("bg-secondary", "bg-warning");
-            zonaSeleccionada.classList.add("bg-primary"); // completado
-            iniciarBtn.textContent = "Guardar y Salir";
-        } else {
-            zonaSeleccionada.classList.remove("bg-secondary", "bg-primary");
-            zonaSeleccionada.classList.add("bg-warning"); // parcialmente abastecida
-            iniciarBtn.textContent = "Cerrar y Guardar";
-        }
+        // Jabas Saldo
+        saldoLabel.textContent = restante;
 
-        // Limpiar input
+        // Colores de zona y botón según saldo
+        actualizarBotonYColor(zonaSeleccionada, restante);
+
         inputCantidad.value = "";
 
-        // Volver a la grilla
+        // Volver a la grilla automáticamente
         irAGrilla();
+
+        // Repintar todas las zonas completadas
+        repintarCompletadas();
     });
+
+    // ===== Actualización dinámica del botón según cantidad escrita =====
+    inputCantidad.addEventListener("input", function() {
+        const cantidad = parseInt(this.value);
+        const zonaSeleccionada = document.querySelector(".zona-seleccionada");
+        if (!zonaSeleccionada) return;
+
+        const zonaNum = zonaSeleccionada.textContent.trim();
+        let restante = tarimas[zonaNum] - (isNaN(cantidad) ? 0 : cantidad);
+        if (restante < 0) restante = 0;
+
+        saldoLabel.textContent = restante;
+
+        // Cambiar botón y color de zona dinámicamente
+        actualizarBotonYColor(zonaSeleccionada, restante);
+    });
+
+    // ====== Ajustamos el botón para que quede al lado del input ======
+    const cantidadTd = document.querySelector("#tab1 table tbody tr:first-child td");
+    let flexContainer = cantidadTd.querySelector(".flex-container");
+    if (!flexContainer) {
+        flexContainer = document.createElement("div");
+        flexContainer.classList.add("flex-container");
+        flexContainer.style.display = "flex";
+        flexContainer.style.alignItems = "center";
+        flexContainer.style.gap = "10px";
+
+        const input = cantidadTd.querySelector("input");
+        flexContainer.appendChild(input);
+        flexContainer.appendChild(iniciarBtn);
+
+        cantidadTd.innerHTML = "";
+        cantidadTd.appendChild(flexContainer);
+    }
+
+    // ===== Al cargar la página, repintar zonas completadas si hay alguna =====
+    repintarCompletadas();
 
 });
