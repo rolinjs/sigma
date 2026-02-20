@@ -100,7 +100,7 @@
 
                 <!-- MODAL -->
                 <div class="modal fade" id="modalRegistro">
-                    <div class="modal-dialog modal-lg">
+                    <div class="modal-dialog modal-xl">
                         <div class="modal-content">
 
                             <div class="modal-header bg-success text-white">
@@ -111,82 +111,217 @@
                             </div>
 
                             <div class="modal-body">
-                                <div class="row">
 
-                                    <div class="col-md-4">
-                                        <label>Exportador</label>
-                                        <input type="text" id="exportador" class="form-control">
+                                <!-- TABS -->
+                                <ul class="nav nav-tabs" id="tabsRegistro" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#datos">Datos Generales</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#ficha">Ficha Técnica</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#calibresTab">Calibres</a>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content pt-3">
+
+                                    <!-- ================= DATOS GENERALES ================= -->
+                                    <div class="tab-pane fade show active" id="datos">
+
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <label>Exportador</label>
+                                                <input type="text" id="exportador" class="form-control">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>Fecha Despacho</label>
+                                                <input type="date" id="fecha_despacho" class="form-control">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>Destino</label>
+                                                <input type="text" id="destino" class="form-control">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>Línea</label>
+                                                <input type="text" id="linea" class="form-control">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>ETD</label>
+                                                <input type="date" id="etd" class="form-control">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>ETA</label>
+                                                <input type="date" id="eta" class="form-control">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>Semana</label>
+                                                <input type="text" id="semana" class="form-control">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>Caja</label>
+                                                <input type="text" id="caja" class="form-control">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>Agente</label>
+                                                <input type="text" id="agente" class="form-control">
+                                            </div>
+
+                                        </div>
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <label>Fecha Despacho</label>
-                                        <input type="date" id="fecha_despacho" class="form-control">
+                                    <!-- ================= FICHA TECNICA ================= -->
+                                    <div class="tab-pane fade" id="ficha">
+
+                                        <div class="card card-success">
+                                            <div class="card-header">
+                                                <h3 class="card-title">Características Organolépticas</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+
+                                                    <div class="col-md-4">
+                                                        <label>Color</label>
+                                                        <input type="text" id="color" class="form-control">
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <label>Brix (%)</label>
+                                                        <input type="text" id="brix" class="form-control">
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <label>Firmeza (kgf)</label>
+                                                        <input type="text" id="firmeza" class="form-control">
+                                                    </div>
+
+                                                    <div class="col-md-2">
+                                                        <label>MS (%)</label>
+                                                        <input type="text" id="ms" class="form-control">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card card-success">
+                                            <div class="card-header">
+                                                <h3 class="card-title">Características de Empaque</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+
+                                                    <div class="col-md-4">
+                                                        <label>Presentación</label>
+                                                        <input type="text" id="presentacion" class="form-control">
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <label>Peso Neto (kg)</label>
+                                                        <input type="text" id="peso_neto" class="form-control">
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <label>Marca Caja</label>
+                                                        <input type="text" id="marca_caja" class="form-control">
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <label>Humedad (%)</label>
+                                                        <input type="text" id="humedad" class="form-control">
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <label>Gramaje (g)</label>
+                                                        <input type="text" id="gramaje" class="form-control">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card card-success">
+                                            <div class="card-header">
+                                                <h3 class="card-title">Paletizado</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+
+                                                    <div class="col-md-4">
+                                                        <label>Medida Pallet</label>
+                                                        <input type="text" id="medida_pallet" class="form-control">
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <label>Cajas por Nivel</label>
+                                                        <input type="number" id="cajas_nivel" class="form-control">
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <label>Niveles</label>
+                                                        <input type="number" id="niveles" class="form-control">
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <label>Zunchos</label>
+                                                        <input type="number" id="zunchos" class="form-control">
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <label>Esquineros</label>
+                                                        <input type="text" id="esquineros" class="form-control">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <label>Destino</label>
-                                        <input type="text" id="destino" class="form-control">
+                                    <!-- ================= CALIBRES ================= -->
+                                    <div class="tab-pane fade" id="calibresTab">
+
+                                        <!-- MOVIDO AQUI -->
+                                        <div class="row mb-3">
+                                            <div class="col-md-4">
+                                                <label>Cantidad Total de Pallets</label>
+                                                <input type="number" id="totalPallets" class="form-control" min="1"
+                                                    oninput="recalcularTodo()">
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <h6 class="text-success mb-0">Calibres</h6>
+                                            <button type="button" class="btn btn-sm btn-success" onclick="agregarCalibre()">
+                                                + Agregar Calibre
+                                            </button>
+                                        </div>
+
+                                        <div id="contenedorCalibres"></div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-md-12 text-right">
+                                                <strong>
+                                                    Pallets usados: <span id="totalPalletsUsados">0</span>
+                                                    |
+                                                    Total: <span id="totalPorcentaje">0</span>%
+                                                </strong>
+                                                <span id="mensajeTotal" class="ml-2 font-weight-bold"></span>
+                                            </div>
+                                        </div>
+
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <label>Línea</label>
-                                        <input type="text" id="linea" class="form-control">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label>ETD</label>
-                                        <input type="date" id="etd" class="form-control">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label>ETA</label>
-                                        <input type="date" id="eta" class="form-control">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label>Semana</label>
-                                        <input type="text" id="semana" class="form-control">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label>Caja</label>
-                                        <input type="text" id="caja" class="form-control">
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label>Agente</label>
-                                        <input type="text" id="agente" class="form-control">
-                                    </div>
-
-                                    <!-- NUEVO INPUT TOTAL PALLETS -->
-                                    <div class="col-md-4">
-                                        <label>Cantidad Total de Pallets</label>
-                                        <input type="number" id="totalPallets" class="form-control" min="1"
-                                            oninput="recalcularTodo()">
-                                    </div>
-
-                                </div>
-
-                                <hr>
-
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <h6 class="text-success mb-0">Calibres</h6>
-                                    <button type="button" class="btn btn-sm btn-success" onclick="agregarCalibre()">
-                                        + Agregar Calibre
-                                    </button>
-                                </div>
-
-                                <div id="contenedorCalibres"></div>
-
-                                <div class="row mt-2">
-                                    <div class="col-md-12 text-right">
-                                        <strong>
-                                            Pallets usados: <span id="totalPalletsUsados">0</span>
-                                            |
-                                            Total: <span id="totalPorcentaje">0</span>%
-                                        </strong>
-                                        <span id="mensajeTotal" class="ml-2 font-weight-bold"></span>
-                                    </div>
                                 </div>
 
                             </div>
@@ -284,51 +419,51 @@
 
 let contadorCalibres = 0;
 
-function agregarCalibre() {
+    function agregarCalibre() {
 
-    contadorCalibres++;
+        contadorCalibres++;
 
-    const contenedor = document.getElementById("contenedorCalibres");
+        const contenedor = document.getElementById("contenedorCalibres");
 
-    const fila = document.createElement("div");
-    fila.className = "row mb-2";
-    fila.id = "filaCalibre_" + contadorCalibres;
+        const fila = document.createElement("div");
+        fila.className = "row mb-2";
+        fila.id = "filaCalibre_" + contadorCalibres;
 
-    fila.innerHTML = `
-        <div class="col-md-4">
-            <label>Calibre</label>
-            <input type="number" class="form-control" name="calibre[]">
-        </div>
+        fila.innerHTML = `
+            <div class="col-md-4">
+                <label>Calibre</label>
+                <input type="number" class="form-control" name="calibre[]">
+            </div>
 
-        <div class="col-md-4">
-            <label>Pallets</label>
-            <input type="number" class="form-control pallets-input"
-                   name="pallets[]" min="0"
-                   oninput="recalcularTodo()">
-        </div>
+            <div class="col-md-4">
+                <label>Pallets</label>
+                <input type="number" class="form-control pallets-input"
+                    name="pallets[]" min="0"
+                    oninput="recalcularTodo()">
+            </div>
 
-        <div class="col-md-3">
-            <label>Porcentaje (%)</label>
-            <input type="number" class="form-control porcentaje-input"
-                   name="porcentaje[]" readonly>
-        </div>
+            <div class="col-md-3">
+                <label>Porcentaje (%)</label>
+                <input type="number" class="form-control porcentaje-input"
+                    name="porcentaje[]" readonly>
+            </div>
 
-        <div class="col-md-1 d-flex align-items-end">
-            <button type="button" class="btn btn-danger btn-block"
-                    onclick="eliminarCalibre(${contadorCalibres})">
-                X
-            </button>
-        </div>
-    `;
+            <div class="col-md-1 d-flex align-items-end">
+                <button type="button" class="btn btn-danger btn-block"
+                        onclick="eliminarCalibre(${contadorCalibres})">
+                    X
+                </button>
+            </div>
+        `;
 
-    contenedor.appendChild(fila);
-}
+        contenedor.appendChild(fila);
+    }
 
-function eliminarCalibre(id) {
-    const fila = document.getElementById("filaCalibre_" + id);
-    fila.remove();
-    recalcularTodo();
-}
+    function eliminarCalibre(id) {
+        const fila = document.getElementById("filaCalibre_" + id);
+        fila.remove();
+        recalcularTodo();
+    }
 
     function recalcularTodo() {
 
