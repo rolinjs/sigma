@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html style="height: auto;">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Hidrotérmico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="resorce/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="resorce/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <!-- DataTables Bootstrap 4 -->
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+</head>
+
+<body class="sidebar-mini sidebar-collapse">
+
+    <div class="wrapper">
+
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light"></nav>
+
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <a class='brand-link' href='/resorce/index3'>
+                <img src="resorce/dist/img/AdminLTELogo.png" class="brand-image img-circle elevation-3"
+                    style="opacity: .8">
+                <span class="brand-text font-weight-light">AdminLTE 3</span>
+            </a>
+
+            <div class="sidebar">
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="resorce/dist/img/user2-160x160.jpg" class="img-circle elevation-2">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Alexander Pierce</a>
+                    </div>
+                </div>
+
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview">
+                        <li class="nav-item">
+                            <a class='nav-link' href='/'><i class="nav-icon far fa-circle text-warning"></i>
+                                <p>Abastecimiento</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class='nav-link' href='#'><i class="nav-icon far fa-circle text-info"></i>
+                                <p>Hidrotérmico</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="programacion_empaque.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Programación Empaque</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <div class="content-wrapper">
+            <section class="content pt-3">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        Registro de Despachos
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="mb-3">
+                            <button class="btn btn-success" data-toggle="modal" data-target="#modalRegistro">
+                                + Nuevo Registro
+                            </button>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table id="tablaDespachos" class="table table-bordered table-striped">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>EXPORTADOR</th>
+                                        <th>FECHA DESPACHO</th>
+                                        <th>DESTINO</th>
+                                        <th>LINEA</th>
+                                        <th>ETD</th>
+                                        <th>ETA</th>
+                                        <th>SEMANA</th>
+                                        <th>CAJA</th>
+                                        <th>AGENTE</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- MODAL -->
+                <div class="modal fade" id="modalRegistro">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+
+                            <div class="modal-header bg-success text-white">
+                                <h5 class="modal-title">Registrar Despacho</h5>
+                                <button type="button" class="close text-white" data-dismiss="modal">
+                                    <span>&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="row">
+
+                                    <div class="col-md-4">
+                                        <label>Exportador</label>
+                                        <input type="text" id="exportador" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>Fecha Despacho</label>
+                                        <input type="date" id="fecha_despacho" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>Destino</label>
+                                        <input type="text" id="destino" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>Línea</label>
+                                        <input type="text" id="linea" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>ETD</label>
+                                        <input type="date" id="etd" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>ETA</label>
+                                        <input type="date" id="eta" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>Semana</label>
+                                        <input type="text" id="semana" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>Caja</label>
+                                        <input type="text" id="caja" class="form-control">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>Agente</label>
+                                        <input type="text" id="agente" class="form-control">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-success"
+                                    onclick="agregarRegistro()">Guardar</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+        <footer class="main-footer">
+            <strong>AdminLTE 3</strong>
+        </footer>
+
+    </div>
+
+    <script src="resorce/plugins/jquery/jquery.min.js"></script>
+    <script src="resorce/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="resorce/dist/js/adminlte.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        let tabla;
+
+        $(document).ready(function () {
+            tabla = $('#tablaDespachos').DataTable({
+                language: {
+                    url: "https://cdn.datatables.net/plug-ins/1.13.6/i18n/es-ES.json"
+                }
+            });
+        });
+
+        function agregarRegistro() {
+
+            tabla.row.add([
+                $('#exportador').val(),
+                $('#fecha_despacho').val(),
+                $('#destino').val(),
+                $('#linea').val(),
+                $('#etd').val(),
+                $('#eta').val(),
+                $('#semana').val(),
+                $('#caja').val(),
+                $('#agente').val()
+            ]).draw();
+
+            $('#modalRegistro input').val('');
+            $('#modalRegistro').modal('hide');
+        }
+    </script>
+
+</body>
+
+</html>
