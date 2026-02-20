@@ -282,7 +282,7 @@
             $('#modalRegistro').modal('hide');
         }
 
-        let contadorCalibres = 0;
+let contadorCalibres = 0;
 
 function agregarCalibre() {
 
@@ -330,75 +330,75 @@ function eliminarCalibre(id) {
     recalcularTodo();
 }
 
-function recalcularTodo() {
+    function recalcularTodo() {
 
-    const totalPallets = parseFloat(document.getElementById("totalPallets").value) || 0;
+        const totalPallets = parseFloat(document.getElementById("totalPallets").value) || 0;
 
-    let sumaPallets = 0;
+        let sumaPallets = 0;
 
-    const palletsInputs = document.querySelectorAll(".pallets-input");
-    const porcentajeInputs = document.querySelectorAll(".porcentaje-input");
+        const palletsInputs = document.querySelectorAll(".pallets-input");
+        const porcentajeInputs = document.querySelectorAll(".porcentaje-input");
 
-    palletsInputs.forEach(input => {
-        sumaPallets += parseFloat(input.value) || 0;
-    });
-
-    // VALIDACIÓN REAL POR PALLETS (más importante que porcentaje)
-    if (totalPallets > 0 && sumaPallets > totalPallets) {
-        Swal.fire({
-            icon: 'warning',
-            title: '¡Advertencia!',
-            text: 'No puede exceder el total de pallets del contenedor',
-            confirmButtonColor: '#3085d6'
+        palletsInputs.forEach(input => {
+            sumaPallets += parseFloat(input.value) || 0;
         });
-        return;
-    }
 
-    //  Calcular porcentajes
-    palletsInputs.forEach((input, index) => {
-
-        const pallets = parseFloat(input.value) || 0;
-
-        if (totalPallets > 0) {
-            let porcentajeReal = (pallets / totalPallets) * 100;
-            porcentajeInputs[index].value = porcentajeReal.toFixed(2);
-        } else {
-            porcentajeInputs[index].value = 0;
+        // VALIDACIÓN REAL POR PALLETS (más importante que porcentaje)
+        if (totalPallets > 0 && sumaPallets > totalPallets) {
+            Swal.fire({
+                icon: 'warning',
+                title: '¡Advertencia!',
+                text: 'No puede exceder el total de pallets del contenedor',
+                confirmButtonColor: '#3085d6'
+            });
+            return;
         }
 
-    });
+        //  Calcular porcentajes
+        palletsInputs.forEach((input, index) => {
 
-    // Calcular total porcentaje REAL (sin redondeo acumulado)
-    let totalPorcentajeReal = 0;
+            const pallets = parseFloat(input.value) || 0;
 
-    palletsInputs.forEach(input => {
-        const pallets = parseFloat(input.value) || 0;
-        if (totalPallets > 0) {
-            totalPorcentajeReal += (pallets / totalPallets) * 100;
+            if (totalPallets > 0) {
+                let porcentajeReal = (pallets / totalPallets) * 100;
+                porcentajeInputs[index].value = porcentajeReal.toFixed(2);
+            } else {
+                porcentajeInputs[index].value = 0;
+            }
+
+        });
+
+        // Calcular total porcentaje REAL (sin redondeo acumulado)
+        let totalPorcentajeReal = 0;
+
+        palletsInputs.forEach(input => {
+            const pallets = parseFloat(input.value) || 0;
+            if (totalPallets > 0) {
+                totalPorcentajeReal += (pallets / totalPallets) * 100;
+            }
+        });
+
+        document.getElementById("totalPalletsUsados").innerText = sumaPallets;
+        document.getElementById("totalPorcentaje").innerText = totalPorcentajeReal.toFixed(2);
+
+        const mensaje = document.getElementById("mensajeTotal");
+
+        // VALIDACIÓN CORRECTA BASADA EN PALLETS (NO EN DECIMALES)
+        if (totalPallets > 0 && sumaPallets === totalPallets) {
+            mensaje.innerText = "Completo";
+            mensaje.style.color = "green";
+        } 
+        else if (totalPallets > 0 && sumaPallets > totalPallets) {
+            mensaje.innerText = "Excede pallets";
+            mensaje.style.color = "red";
+        } 
+        else {
+            let faltan = totalPallets - sumaPallets;
+            mensaje.innerText = "Faltan " + faltan + " pallets";
+            mensaje.style.color = "orange";
         }
-    });
-
-    document.getElementById("totalPalletsUsados").innerText = sumaPallets;
-    document.getElementById("totalPorcentaje").innerText = totalPorcentajeReal.toFixed(2);
-
-    const mensaje = document.getElementById("mensajeTotal");
-
-    // VALIDACIÓN CORRECTA BASADA EN PALLETS (NO EN DECIMALES)
-    if (totalPallets > 0 && sumaPallets === totalPallets) {
-        mensaje.innerText = "Completo";
-        mensaje.style.color = "green";
-    } 
-    else if (totalPallets > 0 && sumaPallets > totalPallets) {
-        mensaje.innerText = "Excede pallets";
-        mensaje.style.color = "red";
-    } 
-    else {
-        let faltan = totalPallets - sumaPallets;
-        mensaje.innerText = "Faltan " + faltan + " pallets";
-        mensaje.style.color = "orange";
     }
-}
-    </script>
+</script>
 
 </body>
 
