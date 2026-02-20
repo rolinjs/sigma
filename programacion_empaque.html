@@ -246,6 +246,15 @@
                                                         <input type="text" id="gramaje" class="form-control">
                                                     </div>
 
+                                                    <div class="col-md-3">
+                                                        <label>Tipo Etiqueta</label>
+                                                        <select name="" id="" class="form-control">
+                                                            <option value="">Etiqueta 1</option>
+                                                            <option value="">Etiqueta 2</option>
+                                                            <option value="">Etiqueta 3</option>
+                                                        </select>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -291,36 +300,45 @@
                                     <!-- ================= CALIBRES ================= -->
                                     <div class="tab-pane fade" id="calibresTab">
 
-                                        <!-- MOVIDO AQUI -->
-                                        <div class="row mb-3">
-                                            <div class="col-md-4">
-                                                <label>Cantidad Total de Pallets</label>
-                                                <input type="number" id="totalPallets" class="form-control" min="1"
-                                                    oninput="recalcularTodo()">
-                                            </div>
-                                        </div>
+    <!-- MOVIDO AQUI -->
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <label>Cantidad Total de Pallets</label>
+            <input type="number" id="totalPallets" class="form-control" min="1"
+                oninput="recalcularTodo()">
+        </div>
 
-                                        <div class="d-flex justify-content-between align-items-center mb-2">
-                                            <h6 class="text-success mb-0">Calibres</h6>
-                                            <button type="button" class="btn btn-sm btn-success" onclick="agregarCalibre()">
-                                                + Agregar Calibre
-                                            </button>
-                                        </div>
+        <!-- BOTÓN MIXTEO -->
+        <div class="col-md-3 d-flex align-items-end">
+            <button type="button" id="btnMixtear"
+                class="btn btn-primary btn-block"
+                onclick="toggleMixteo()">
+                Mixtear
+            </button>
+        </div>
+    </div>
 
-                                        <div id="contenedorCalibres"></div>
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <h6 class="text-success mb-0">Detalle Calibre Por Contenedor</h6>
+        <button type="button" class="btn btn-sm btn-success" onclick="agregarCalibre()">
+            + Agregar Calibre
+        </button>
+    </div>
 
-                                        <div class="row mt-2">
-                                            <div class="col-md-12 text-right">
-                                                <strong>
-                                                    Pallets usados: <span id="totalPalletsUsados">0</span>
-                                                    |
-                                                    Total: <span id="totalPorcentaje">0</span>%
-                                                </strong>
-                                                <span id="mensajeTotal" class="ml-2 font-weight-bold"></span>
-                                            </div>
-                                        </div>
+    <div id="contenedorCalibres"></div>
 
-                                    </div>
+    <div class="row mt-2">
+        <div class="col-md-12 text-right">
+            <strong>
+                Pallets usados: <span id="totalPalletsUsados">0</span>
+                |
+                Total: <span id="totalPorcentaje">0</span>%
+            </strong>
+            <span id="mensajeTotal" class="ml-2 font-weight-bold"></span>
+        </div>
+    </div>
+
+</div>
 
                                 </div>
 
@@ -417,122 +435,187 @@
             $('#modalRegistro').modal('hide');
         }
 
-let contadorCalibres = 0;
+    let contadorCalibres = 0;
+let modoMixteoActivo = false;
 
-    function agregarCalibre() {
+/* =========================
+   AGREGAR CALIBRE
+========================= */
+function agregarCalibre() {
 
-        contadorCalibres++;
+    contadorCalibres++;
 
-        const contenedor = document.getElementById("contenedorCalibres");
+    const contenedor = document.getElementById("contenedorCalibres");
 
-        const fila = document.createElement("div");
-        fila.className = "row mb-2";
-        fila.id = "filaCalibre_" + contadorCalibres;
+    const fila = document.createElement("div");
+    fila.className = "row mb-2";
+    fila.id = "filaCalibre_" + contadorCalibres;
 
-        fila.innerHTML = `
-            <div class="col-md-4">
-                <label>Calibre</label>
-                <input type="number" class="form-control" name="calibre[]">
-            </div>
+    fila.innerHTML = `
+        <div class="col-md-2">
+            <label>Tipo</label>
+            <select class="form-control tipo-calibre"
+                onchange="mostrarCajas(this)">
+                <option value="normal">Normal</option>
+                <option value="mixto">Mixto</option>
+            </select>
+        </div>
 
-            <div class="col-md-4">
-                <label>Pallets</label>
-                <input type="number" class="form-control pallets-input"
-                    name="pallets[]" min="0"
-                    oninput="recalcularTodo()">
-            </div>
+        <div class="col-md-2">
+            <label>Calibre</label>
+            <input type="number" class="form-control" name="calibre[]">
+        </div>
 
-            <div class="col-md-3">
-                <label>Porcentaje (%)</label>
-                <input type="number" class="form-control porcentaje-input"
-                    name="porcentaje[]" readonly>
-            </div>
+        <div class="col-md-2">
+            <label>Pallets</label>
+            <input type="number" class="form-control pallets-input"
+                name="pallets[]" min="0"
+                oninput="recalcularTodo()">
+        </div>
 
-            <div class="col-md-1 d-flex align-items-end">
-                <button type="button" class="btn btn-danger btn-block"
-                        onclick="eliminarCalibre(${contadorCalibres})">
-                    X
-                </button>
-            </div>
-        `;
+        <div class="col-md-2 cajas-mixto d-none">
+            <label>Cantidad Cajas</label>
+            <input type="number" class="form-control"
+                name="cajas_mixto[]" min="0">
+        </div>
 
-        contenedor.appendChild(fila);
+        <div class="col-md-2">
+            <label>Porcentaje (%)</label>
+            <input type="number" class="form-control porcentaje-input"
+                name="porcentaje[]" readonly>
+        </div>
+
+        <div class="col-md-2 d-flex align-items-end">
+            <button type="button" class="btn btn-danger btn-block"
+                    onclick="eliminarCalibre(${contadorCalibres})">
+                X
+            </button>
+        </div>
+    `;
+
+    contenedor.appendChild(fila);
+}
+
+/* =========================
+   MOSTRAR INPUT CAJAS SOLO SI ES MIXTO
+========================= */
+function mostrarCajas(select) {
+
+    const fila = select.closest(".row");
+    const contenedorCajas = fila.querySelector(".cajas-mixto");
+
+    if (select.value === "mixto") {
+        contenedorCajas.classList.remove("d-none");
+    } else {
+        contenedorCajas.classList.add("d-none");
     }
+}
 
-    function eliminarCalibre(id) {
-        const fila = document.getElementById("filaCalibre_" + id);
-        fila.remove();
-        recalcularTodo();
-    }
+/* =========================
+   ELIMINAR
+========================= */
+function eliminarCalibre(id) {
+    const fila = document.getElementById("filaCalibre_" + id);
+    fila.remove();
+    recalcularTodo();
+}
 
-    function recalcularTodo() {
+/* =========================
+   RECALCULAR
+========================= */
+function recalcularTodo() {
 
-        const totalPallets = parseFloat(document.getElementById("totalPallets").value) || 0;
+    const totalPallets = parseFloat(document.getElementById("totalPallets").value) || 0;
 
-        let sumaPallets = 0;
+    let sumaPallets = 0;
 
-        const palletsInputs = document.querySelectorAll(".pallets-input");
-        const porcentajeInputs = document.querySelectorAll(".porcentaje-input");
+    const palletsInputs = document.querySelectorAll(".pallets-input");
+    const porcentajeInputs = document.querySelectorAll(".porcentaje-input");
 
-        palletsInputs.forEach(input => {
-            sumaPallets += parseFloat(input.value) || 0;
+    palletsInputs.forEach(input => {
+        sumaPallets += parseFloat(input.value) || 0;
+    });
+
+    if (totalPallets > 0 && sumaPallets > totalPallets) {
+        Swal.fire({
+            icon: 'warning',
+            title: '¡Advertencia!',
+            text: 'No puede exceder el total de pallets del contenedor',
+            confirmButtonColor: '#3085d6'
         });
+        return;
+    }
 
-        // VALIDACIÓN REAL POR PALLETS (más importante que porcentaje)
-        if (totalPallets > 0 && sumaPallets > totalPallets) {
-            Swal.fire({
-                icon: 'warning',
-                title: '¡Advertencia!',
-                text: 'No puede exceder el total de pallets del contenedor',
-                confirmButtonColor: '#3085d6'
-            });
-            return;
+    palletsInputs.forEach((input, index) => {
+
+        const pallets = parseFloat(input.value) || 0;
+
+        if (totalPallets > 0) {
+            let porcentajeReal = (pallets / totalPallets) * 100;
+            porcentajeInputs[index].value = porcentajeReal.toFixed(2);
+        } else {
+            porcentajeInputs[index].value = 0;
         }
 
-        //  Calcular porcentajes
-        palletsInputs.forEach((input, index) => {
+    });
 
-            const pallets = parseFloat(input.value) || 0;
+    let totalPorcentajeReal = 0;
 
-            if (totalPallets > 0) {
-                let porcentajeReal = (pallets / totalPallets) * 100;
-                porcentajeInputs[index].value = porcentajeReal.toFixed(2);
-            } else {
-                porcentajeInputs[index].value = 0;
-            }
-
-        });
-
-        // Calcular total porcentaje REAL (sin redondeo acumulado)
-        let totalPorcentajeReal = 0;
-
-        palletsInputs.forEach(input => {
-            const pallets = parseFloat(input.value) || 0;
-            if (totalPallets > 0) {
-                totalPorcentajeReal += (pallets / totalPallets) * 100;
-            }
-        });
-
-        document.getElementById("totalPalletsUsados").innerText = sumaPallets;
-        document.getElementById("totalPorcentaje").innerText = totalPorcentajeReal.toFixed(2);
-
-        const mensaje = document.getElementById("mensajeTotal");
-
-        // VALIDACIÓN CORRECTA BASADA EN PALLETS (NO EN DECIMALES)
-        if (totalPallets > 0 && sumaPallets === totalPallets) {
-            mensaje.innerText = "Completo";
-            mensaje.style.color = "green";
-        } 
-        else if (totalPallets > 0 && sumaPallets > totalPallets) {
-            mensaje.innerText = "Excede pallets";
-            mensaje.style.color = "red";
-        } 
-        else {
-            let faltan = totalPallets - sumaPallets;
-            mensaje.innerText = "Faltan " + faltan + " pallets";
-            mensaje.style.color = "orange";
+    palletsInputs.forEach(input => {
+        const pallets = parseFloat(input.value) || 0;
+        if (totalPallets > 0) {
+            totalPorcentajeReal += (pallets / totalPallets) * 100;
         }
+    });
+
+    document.getElementById("totalPalletsUsados").innerText = sumaPallets;
+    document.getElementById("totalPorcentaje").innerText = totalPorcentajeReal.toFixed(2);
+
+    const mensaje = document.getElementById("mensajeTotal");
+
+    if (totalPallets > 0 && sumaPallets === totalPallets) {
+        mensaje.innerText = "Completo";
+        mensaje.style.color = "green";
     }
+    else if (totalPallets > 0 && sumaPallets > totalPallets) {
+        mensaje.innerText = "Excede pallets";
+        mensaje.style.color = "red";
+    }
+    else {
+        let faltan = totalPallets - sumaPallets;
+        mensaje.innerText = "Faltan " + faltan + " pallets";
+        mensaje.style.color = "orange";
+    }
+}
+
+/* =========================
+   BOTÓN MIXTEO
+========================= */
+function toggleMixteo() {
+
+    const btn = document.getElementById("btnMixtear");
+
+    if (!modoMixteoActivo) {
+
+        // Aquí se ejecutaría tu lógica de mixteo
+        console.log("Ejecutando lógica de mixteo...");
+
+        modoMixteoActivo = true;
+        btn.innerText = "Finalizar Mixteo";
+        btn.classList.remove("btn-primary");
+        btn.classList.add("btn-danger");
+
+    } else {
+
+        // Reiniciar estado para permitir nuevo ciclo
+        console.log("Finalizando mixteo...");
+
+        modoMixteoActivo = false;
+        btn.innerText = "Mixtear";
+        btn.classList.remove("btn-danger");
+        btn.classList.add("btn-primary");
+    }
+}
 </script>
 
 </body>
