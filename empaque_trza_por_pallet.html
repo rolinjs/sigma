@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html style="height: auto;">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Hidrotérmico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="resorce/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="resorce/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+</head>
+
+<body class="sidebar-mini sidebar-collapse">
+
+    <div class="wrapper">
+
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light"></nav>
+
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <a class='brand-link' href='/resorce/index3'>
+                <img src="resorce/dist/img/AdminLTELogo.png" class="brand-image img-circle elevation-3"
+                    style="opacity: .8">
+                <span class="brand-text font-weight-light">AdminLTE 3</span>
+            </a>
+
+            <div class="sidebar">
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="resorce/dist/img/user2-160x160.jpg" class="img-circle elevation-2">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Alexander Pierce</a>
+                    </div>
+                </div>
+
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview">
+                        <li class="nav-item">
+                            <a class='nav-link' href='/'><i class="nav-icon far fa-circle text-warning"></i>
+                                <p>Abastecimiento</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class='nav-link' href='hidro.html'><i class="nav-icon far fa-circle text-info"></i>
+                                <p>Hidrotérmico</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="programacion_empaque.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Programación Empaque</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Empaque Traza. Pallet</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <div class="content-wrapper">
+            <section class="content pt-3">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        Empaque Trazabilidad por Pallet
+                    </div>
+
+                    <div class="card-body">
+                        <!-- ================= CABECERA SUPERIOR ================= -->
+                        <div class="row mb-3">
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>*FECHA:</label>
+                                    <input type="date" class="form-control form-control-sm">
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>CLIENTE:</label>
+                                    <div class="input-group input-group-sm">
+                                        <select class="form-control">
+                                            <option>BEJO SAC</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>EXPORTADOR:</label>
+                                    <div class="input-group input-group-sm">
+                                        <select class="form-control">
+                                            <option>BEJO SAC</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>*LINEA:</label>
+                                    <div class="input-group input-group-sm">
+                                        <select class="form-control">
+                                            <option>EMPAQUE EUROPA 1</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>*DESTINO:</label>
+                                    <select class="form-control form-control-sm">
+                                        <option>EUROPA</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>TIPO PROD.:</label>
+                                    <select class="form-control form-control-sm">
+                                        <option>ORGANICO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>*RESPONSABLE PROCESO:</label>
+                                    <div class="input-group input-group-sm">
+                                        <select class="form-control">
+                                            <option>JASMIN ATARAMA COAGUILA</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>*N° PALLET:</label>
+                                    <input type="text" class="form-control form-control-sm" value="04-0002">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-12 text-left">
+                                <button class="btn btn-info btn-sm">
+                                    <i class="fas fa-unlock"></i> DESBLOQUEAR
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <!-- ================= DETALLE DE PALLET ================= -->
+                        <div class="card card-outline card-secondary">
+
+                            <!-- HEADER CENTRADO COMO EN IMAGEN -->
+                            <div class="card-header text-center py-1">
+                                <strong>DETALLE DE PALLET</strong>
+                            </div>
+
+                            <div class="card-body p-0">
+
+                                <!-- BOTON + CENTRADO -->
+                                <div class="text-center mt-2 mb-1">
+                                    <button class="btn btn-success btn-xs">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-sm mb-0">
+
+                                        <thead style="background:#f4f4f4;">
+                                            <tr class="text-center">
+                                                <th style="width:30px;"></th>
+                                                <th>CÓDIGO</th>
+                                                <th>FECHA</th>
+                                                <th>N° LOTE</th>
+                                                <th>VARIEDAD</th>
+                                                <th>TIPO PROD.</th>
+                                                <th>TIPO EMPAQUE</th>
+                                                <th>CALIBRE</th>
+                                                <th>CAJAS</th>
+                                                <th>COD. CJ</th>
+                                                <th>LOTE CJ</th>
+                                                <th>COD. PLU</th>
+                                                <th>COD. PAR.</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                            <!-- FILA DE INPUTS COMO EN IMAGEN -->
+                                            <tr class="text-center">
+                                                <td><input type="checkbox"></td>
+
+                                                <td></td>
+
+                                                <td>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        placeholder="dd/mm/aaaa">
+                                                </td>
+
+                                                <td>
+                                                    <select class="form-control form-control-sm">
+                                                        <option>SELECCIONE..</option>
+                                                    </select>
+                                                </td>
+
+                                                <td></td>
+                                                <td></td>
+
+                                                <td>
+                                                    <select class="form-control form-control-sm">
+                                                        <option>SELECCIONE..</option>
+                                                    </select>
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        placeholder="CALIBRE">
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        placeholder="CAJAS">
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        placeholder="COD. CAJA">
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        placeholder="LOTE CJ">
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        placeholder="COD. PLU">
+                                                </td>
+
+                                                <td>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        placeholder="COD.">
+                                                </td>
+
+                                                <td></td>
+                                            </tr>
+
+                                            <!-- FILA DE DATOS COMO EN IMAGEN -->
+                                            <tr class="text-center">
+                                                <td><input type="checkbox"></td>
+                                                <td>00213304</td>
+                                                <td>2018-03-28</td>
+                                                <td>04-002</td>
+                                                <td>KENT</td>
+                                                <td>ORGANICO</td>
+                                                <td>COD.04 / MARCA: BEOSA</td>
+                                                <td>9</td>
+                                                <td>252</td>
+                                                <td>04</td>
+                                                <td>001</td>
+                                                <td>100%PLUPE</td>
+                                                <td>160</td>
+                                                <td>
+                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- LINEA INFERIOR COMO EN SISTEMA -->
+                                <div style="border-top:1px solid #ddd;"></div>
+
+                            </div>
+                        </div>
+
+                        <!-- ================= RESUMEN DE SALDOS ================= -->
+                        <div class="card card-outline card-secondary mt-3">
+                            <div class="card-header py-2">
+                                <h3 class="card-title"><b>RESUMEN DE SALDOS</b></h3>
+                            </div>
+
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-sm mb-0">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th>CÓDIGO</th>
+                                                <th>FECHA</th>
+                                                <th>N° SALDO</th>
+                                                <th>N° LOTE</th>
+                                                <th>VARIEDAD</th>
+                                                <th>TIPO PROD.</th>
+                                                <th>TIPO EMP.</th>
+                                                <th>CALIBRE</th>
+                                                <th>CAJAS</th>
+                                                <th>AÑADIR A PALLET</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>00213304</td>
+                                                <td>2018-03-28</td>
+                                                <td>S-00013</td>
+                                                <td>04-002</td>
+                                                <td>KENT</td>
+                                                <td>ORGANICO</td>
+                                                <td>COD.04 / MARCA: BEOSA</td>
+                                                <td>6</td>
+                                                <td>184</td>
+                                                <td>
+                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
+                                                    <button class="btn btn-danger btn-xs"><i
+                                                            class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
+                                                    <button class="btn btn-danger btn-xs">BAJA</button>
+                                                    <button class="btn btn-info btn-xs"><i
+                                                            class="fa fa-print"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>00213304</td>
+                                                <td>2018-03-28</td>
+                                                <td>S-00014</td>
+                                                <td>04-002</td>
+                                                <td>KENT</td>
+                                                <td>ORGANICO</td>
+                                                <td>COD.04 / MARCA: BEOSA</td>
+                                                <td>7</td>
+                                                <td>127</td>
+                                                <td>
+                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
+                                                    <button class="btn btn-danger btn-xs"><i
+                                                            class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
+                                                    <button class="btn btn-danger btn-xs">BAJA</button>
+                                                    <button class="btn btn-info btn-xs"><i
+                                                            class="fa fa-print"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>00213304</td>
+                                                <td>2018-03-28</td>
+                                                <td>S-00013</td>
+                                                <td>04-002</td>
+                                                <td>KENT</td>
+                                                <td>ORGANICO</td>
+                                                <td>COD.04 / MARCA: BEOSA</td>
+                                                <td>6</td>
+                                                <td>184</td>
+                                                <td>
+                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
+                                                    <button class="btn btn-danger btn-xs"><i
+                                                            class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
+                                                    <button class="btn btn-danger btn-xs">BAJA</button>
+                                                    <button class="btn btn-info btn-xs"><i
+                                                            class="fa fa-print"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>00213304</td>
+                                                <td>2018-03-28</td>
+                                                <td>S-00014</td>
+                                                <td>04-002</td>
+                                                <td>KENT</td>
+                                                <td>ORGANICO</td>
+                                                <td>COD.04 / MARCA: BEOSA</td>
+                                                <td>7</td>
+                                                <td>127</td>
+                                                <td>
+                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
+                                                    <button class="btn btn-danger btn-xs"><i
+                                                            class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
+                                                    <button class="btn btn-danger btn-xs">BAJA</button>
+                                                    <button class="btn btn-info btn-xs"><i
+                                                            class="fa fa-print"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>00213304</td>
+                                                <td>2018-03-28</td>
+                                                <td>S-00013</td>
+                                                <td>04-002</td>
+                                                <td>KENT</td>
+                                                <td>ORGANICO</td>
+                                                <td>COD.04 / MARCA: BEOSA</td>
+                                                <td>6</td>
+                                                <td>184</td>
+                                                <td>
+                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
+                                                    <button class="btn btn-danger btn-xs"><i
+                                                            class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
+                                                    <button class="btn btn-danger btn-xs">BAJA</button>
+                                                    <button class="btn btn-info btn-xs"><i
+                                                            class="fa fa-print"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>00213304</td>
+                                                <td>2018-03-28</td>
+                                                <td>S-00014</td>
+                                                <td>04-002</td>
+                                                <td>KENT</td>
+                                                <td>ORGANICO</td>
+                                                <td>COD.04 / MARCA: BEOSA</td>
+                                                <td>7</td>
+                                                <td>127</td>
+                                                <td>
+                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
+                                                    <button class="btn btn-danger btn-xs"><i
+                                                            class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
+                                                    <button class="btn btn-danger btn-xs">BAJA</button>
+                                                    <button class="btn btn-info btn-xs"><i
+                                                            class="fa fa-print"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>00213304</td>
+                                                <td>2018-03-28</td>
+                                                <td>S-00013</td>
+                                                <td>04-002</td>
+                                                <td>KENT</td>
+                                                <td>ORGANICO</td>
+                                                <td>COD.04 / MARCA: BEOSA</td>
+                                                <td>6</td>
+                                                <td>184</td>
+                                                <td>
+                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
+                                                    <button class="btn btn-danger btn-xs"><i
+                                                            class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
+                                                    <button class="btn btn-danger btn-xs">BAJA</button>
+                                                    <button class="btn btn-info btn-xs"><i
+                                                            class="fa fa-print"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>00213304</td>
+                                                <td>2018-03-28</td>
+                                                <td>S-00014</td>
+                                                <td>04-002</td>
+                                                <td>KENT</td>
+                                                <td>ORGANICO</td>
+                                                <td>COD.04 / MARCA: BEOSA</td>
+                                                <td>7</td>
+                                                <td>127</td>
+                                                <td>
+                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
+                                                    <button class="btn btn-danger btn-xs"><i
+                                                            class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
+                                                    <button class="btn btn-danger btn-xs">BAJA</button>
+                                                    <button class="btn btn-info btn-xs"><i
+                                                            class="fa fa-print"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>00213304</td>
+                                                <td>2018-03-28</td>
+                                                <td>S-00013</td>
+                                                <td>04-002</td>
+                                                <td>KENT</td>
+                                                <td>ORGANICO</td>
+                                                <td>COD.04 / MARCA: BEOSA</td>
+                                                <td>6</td>
+                                                <td>184</td>
+                                                <td>
+                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
+                                                    <button class="btn btn-danger btn-xs"><i
+                                                            class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
+                                                    <button class="btn btn-danger btn-xs">BAJA</button>
+                                                    <button class="btn btn-info btn-xs"><i
+                                                            class="fa fa-print"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>00213304</td>
+                                                <td>2018-03-28</td>
+                                                <td>S-00014</td>
+                                                <td>04-002</td>
+                                                <td>KENT</td>
+                                                <td>ORGANICO</td>
+                                                <td>COD.04 / MARCA: BEOSA</td>
+                                                <td>7</td>
+                                                <td>127</td>
+                                                <td>
+                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
+                                                    <button class="btn btn-danger btn-xs"><i
+                                                            class="fa fa-trash"></i></button>
+                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
+                                                    <button class="btn btn-danger btn-xs">BAJA</button>
+                                                    <button class="btn btn-info btn-xs"><i
+                                                            class="fa fa-print"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </section>
+        </div>
+
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 3.0.0
+            </div>
+            <strong>Copyright © 2026<a href="#">Koricancha</a>.</strong>
+        </footer>
+
+    </div>
+
+    <script src="resorce/plugins/jquery/jquery.min.js"></script>
+    <script src="resorce/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="resorce/dist/js/adminlte.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>
