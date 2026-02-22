@@ -13,6 +13,21 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
     <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <style>
+        /* Flecha giratoria */
+        .rotate {
+            display: inline-block;
+            transition: transform 0.3s;
+            margin-left: 8px;
+        }
+        .rotate.down {
+            transform: rotate(90deg);
+        }
+        .card-header {
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
 </head>
 
 <body class="sidebar-mini sidebar-collapse">
@@ -173,12 +188,69 @@
                         </div>
 
                         <div class="row mb-3">
-                            <div class="col-md-12 text-left">
+
+                            <!-- IZQUIERDA: BOTÓN -->
+                            <div class="col-md-6 text-left">
                                 <button class="btn btn-info btn-sm">
                                     <i class="fas fa-unlock"></i> DESBLOQUEAR
                                 </button>
                             </div>
+
+                            <!-- DERECHA: TABLA RESUMEN -->
+                            <div class="col-md-6 text-right mx-auto">
+                                <div class="card card-info" style="max-width:500px; float:right;">
+
+                                    <!-- Header clicable -->
+                                    <div class="card-header bg-primary text-center py-2" data-toggle="collapse" data-target="#tablaProduccion" aria-expanded="false" aria-controls="tablaProduccion">
+                                        <strong>Producción por Área</strong>
+                                        <i class="fas fa-chevron-right rotate"></i>
+                                    </div>
+
+                                    <!-- Contenido colapsable -->
+                                    <div class="collapse" id="tablaProduccion">
+                                        <div class="card-body p-1 text-center">
+
+                                            <table class="table table-sm table-bordered text-center w-100" style="font-size:0.75rem; margin-bottom:0;">
+                                                <thead class="p-0 bg-light">
+                                                    <tr>
+                                                        <th class="p-1">Área</th>
+                                                        <th class="p-1">Detalle Producción</th>
+                                                        <th class="p-1">Total Kilos</th>
+                                                        <th class="p-1">Total Cajas*</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="p-0">
+                                                    <tr>
+                                                        <td class="p-1">USA</td>
+                                                        <td class="p-1">100 jabas × 20 kg</td>
+                                                        <td class="p-1">2,000 kg</td>
+                                                        <td class="p-1">500</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="p-1">EUROPA</td>
+                                                        <td class="p-1">150 jabas × 20 kg</td>
+                                                        <td class="p-1">3,000 kg</td>
+                                                        <td class="p-1">750</td>
+                                                    </tr>
+                                                    <tr class="font-weight-bold bg-light">
+                                                        <td class="p-1" colspan="2">TOTAL GENERAL</td>
+                                                        <td class="p-1">5,000 kg</td>
+                                                        <td class="p-1">1,250 cajas</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <small class="text-muted">
+                                                *Cálculo basado en 4 kg por caja.
+                                            </small>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
+                                                
 
 
                         <!-- ================= DETALLE DE PALLET ================= -->
@@ -460,86 +532,6 @@
                                                             class="fa fa-print"></i></button>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>00213304</td>
-                                                <td>2018-03-28</td>
-                                                <td>S-00013</td>
-                                                <td>04-002</td>
-                                                <td>KENT</td>
-                                                <td>ORGANICO</td>
-                                                <td>COD.04 / MARCA: BEOSA</td>
-                                                <td>6</td>
-                                                <td>184</td>
-                                                <td>
-                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
-                                                    <button class="btn btn-danger btn-xs"><i
-                                                            class="fa fa-trash"></i></button>
-                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
-                                                    <button class="btn btn-danger btn-xs">BAJA</button>
-                                                    <button class="btn btn-info btn-xs"><i
-                                                            class="fa fa-print"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>00213304</td>
-                                                <td>2018-03-28</td>
-                                                <td>S-00014</td>
-                                                <td>04-002</td>
-                                                <td>KENT</td>
-                                                <td>ORGANICO</td>
-                                                <td>COD.04 / MARCA: BEOSA</td>
-                                                <td>7</td>
-                                                <td>127</td>
-                                                <td>
-                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
-                                                    <button class="btn btn-danger btn-xs"><i
-                                                            class="fa fa-trash"></i></button>
-                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
-                                                    <button class="btn btn-danger btn-xs">BAJA</button>
-                                                    <button class="btn btn-info btn-xs"><i
-                                                            class="fa fa-print"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>00213304</td>
-                                                <td>2018-03-28</td>
-                                                <td>S-00013</td>
-                                                <td>04-002</td>
-                                                <td>KENT</td>
-                                                <td>ORGANICO</td>
-                                                <td>COD.04 / MARCA: BEOSA</td>
-                                                <td>6</td>
-                                                <td>184</td>
-                                                <td>
-                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
-                                                    <button class="btn btn-danger btn-xs"><i
-                                                            class="fa fa-trash"></i></button>
-                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
-                                                    <button class="btn btn-danger btn-xs">BAJA</button>
-                                                    <button class="btn btn-info btn-xs"><i
-                                                            class="fa fa-print"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>00213304</td>
-                                                <td>2018-03-28</td>
-                                                <td>S-00014</td>
-                                                <td>04-002</td>
-                                                <td>KENT</td>
-                                                <td>ORGANICO</td>
-                                                <td>COD.04 / MARCA: BEOSA</td>
-                                                <td>7</td>
-                                                <td>127</td>
-                                                <td>
-                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
-                                                    <button class="btn btn-danger btn-xs"><i
-                                                            class="fa fa-trash"></i></button>
-                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
-                                                    <button class="btn btn-danger btn-xs">BAJA</button>
-                                                    <button class="btn btn-info btn-xs"><i
-                                                            class="fa fa-print"></i></button>
-                                                </td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -572,3 +564,12 @@
 </body>
 
 </html>
+<script>
+    // Animar la flecha al abrir/cerrar
+    $('#tablaProduccion').on('show.bs.collapse', function () {
+        $(this).prev('.card-header').find('.rotate').addClass('down');
+    });
+    $('#tablaProduccion').on('hide.bs.collapse', function () {
+        $(this).prev('.card-header').find('.rotate').removeClass('down');
+    });
+</script>
