@@ -265,7 +265,7 @@
 
                                 <!-- BOTON + CENTRADO -->
                                 <div class="text-center mt-2 mb-1">
-                                    <button class="btn btn-success btn-xs">
+                                    <button id="btnAgregarPallet" class="btn btn-success btn-xs">
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </div>
@@ -293,90 +293,6 @@
                                         </thead>
 
                                         <tbody>
-
-                                            <!-- FILA DE INPUTS COMO EN IMAGEN -->
-                                            <tr class="text-center">
-                                                <td><input type="checkbox"></td>
-
-                                                <td>00213304</td>
-
-                                                <td>
-                                                    <input type="date" class="form-control form-control-sm">
-                                                </td>
-
-                                                <td>
-                                                    <select class="form-control form-control-sm">
-                                                        <option>SELECCIONE..</option>
-                                                        <option>02-2025</option>
-                                                        <option>02-2026</option>
-                                                        <option>02-2027</option>
-                                                    </select>
-                                                </td>
-
-                                                <td>KENT</td>
-                                                <td>CNV</td>
-
-                                                <td>
-                                                    <select class="form-control form-control-sm">
-                                                        <option>SELECCIONE..</option>
-                                                    </select>
-                                                </td>
-
-                                                <td>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        placeholder="CALIBRE">
-                                                </td>
-
-                                                <td>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        placeholder="CAJAS">
-                                                </td>
-
-                                                <td>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        placeholder="COD. CAJA">
-                                                </td>
-
-                                                <td>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        placeholder="LOTE CJ">
-                                                </td>
-
-                                                <td>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        placeholder="COD. PLU">
-                                                </td>
-
-                                                <td>
-                                                    <input type="text" class="form-control form-control-sm"
-                                                        placeholder="COD.">
-                                                </td>
-
-                                                <td>
-                                                    <button class="btn btn-primary btn-xs">Guardar Pallet</button>
-                                                    <button class="btn btn-success btn-xs">Guardar Saldo</button>
-                                                </td>
-                                            </tr>
-
-                                            <!-- FILA DE DATOS COMO EN IMAGEN -->
-                                            <tr class="text-center">
-                                                <td><input type="checkbox"></td>
-                                                <td>00213304</td>
-                                                <td>2018-03-28</td>
-                                                <td>04-002</td>
-                                                <td>KENT</td>
-                                                <td>ORGANICO</td>
-                                                <td>COD.04 / MARCA: BEOSA</td>
-                                                <td>9</td>
-                                                <td>252</td>
-                                                <td>04</td>
-                                                <td>001</td>
-                                                <td>100%PLUPE</td>
-                                                <td>160</td>
-                                                <td>
-                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
-                                                </td>
-                                            </tr>
 
                                         </tbody>
                                     </table>
@@ -411,127 +327,7 @@
                                                 <th>AÑADIR A PALLET</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>00213304</td>
-                                                <td>2018-03-28</td>
-                                                <td>S-00013</td>
-                                                <td>04-002</td>
-                                                <td>KENT</td>
-                                                <td>ORGANICO</td>
-                                                <td>COD.04 / MARCA: BEOSA</td>
-                                                <td>6</td>
-                                                <td>184</td>
-                                                <td>
-                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
-                                                    <button class="btn btn-danger btn-xs"><i
-                                                            class="fa fa-trash"></i></button>
-                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
-                                                    <button class="btn btn-danger btn-xs">BAJA</button>
-                                                    <button class="btn btn-info btn-xs"><i
-                                                            class="fa fa-print"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>00213304</td>
-                                                <td>2018-03-28</td>
-                                                <td>S-00014</td>
-                                                <td>04-002</td>
-                                                <td>KENT</td>
-                                                <td>ORGANICO</td>
-                                                <td>COD.04 / MARCA: BEOSA</td>
-                                                <td>7</td>
-                                                <td>127</td>
-                                                <td>
-                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
-                                                    <button class="btn btn-danger btn-xs"><i
-                                                            class="fa fa-trash"></i></button>
-                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
-                                                    <button class="btn btn-danger btn-xs">BAJA</button>
-                                                    <button class="btn btn-info btn-xs"><i
-                                                            class="fa fa-print"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>00213304</td>
-                                                <td>2018-03-28</td>
-                                                <td>S-00013</td>
-                                                <td>04-002</td>
-                                                <td>KENT</td>
-                                                <td>ORGANICO</td>
-                                                <td>COD.04 / MARCA: BEOSA</td>
-                                                <td>6</td>
-                                                <td>184</td>
-                                                <td>
-                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
-                                                    <button class="btn btn-danger btn-xs"><i
-                                                            class="fa fa-trash"></i></button>
-                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
-                                                    <button class="btn btn-danger btn-xs">BAJA</button>
-                                                    <button class="btn btn-info btn-xs"><i
-                                                            class="fa fa-print"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>00213304</td>
-                                                <td>2018-03-28</td>
-                                                <td>S-00014</td>
-                                                <td>04-002</td>
-                                                <td>KENT</td>
-                                                <td>ORGANICO</td>
-                                                <td>COD.04 / MARCA: BEOSA</td>
-                                                <td>7</td>
-                                                <td>127</td>
-                                                <td>
-                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
-                                                    <button class="btn btn-danger btn-xs"><i
-                                                            class="fa fa-trash"></i></button>
-                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
-                                                    <button class="btn btn-danger btn-xs">BAJA</button>
-                                                    <button class="btn btn-info btn-xs"><i
-                                                            class="fa fa-print"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>00213304</td>
-                                                <td>2018-03-28</td>
-                                                <td>S-00013</td>
-                                                <td>04-002</td>
-                                                <td>KENT</td>
-                                                <td>ORGANICO</td>
-                                                <td>COD.04 / MARCA: BEOSA</td>
-                                                <td>6</td>
-                                                <td>184</td>
-                                                <td>
-                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
-                                                    <button class="btn btn-danger btn-xs"><i
-                                                            class="fa fa-trash"></i></button>
-                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
-                                                    <button class="btn btn-danger btn-xs">BAJA</button>
-                                                    <button class="btn btn-info btn-xs"><i
-                                                            class="fa fa-print"></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>00213304</td>
-                                                <td>2018-03-28</td>
-                                                <td>S-00014</td>
-                                                <td>04-002</td>
-                                                <td>KENT</td>
-                                                <td>ORGANICO</td>
-                                                <td>COD.04 / MARCA: BEOSA</td>
-                                                <td>7</td>
-                                                <td>127</td>
-                                                <td>
-                                                    <button class="btn btn-primary btn-xs">EDITAR</button>
-                                                    <button class="btn btn-danger btn-xs"><i
-                                                            class="fa fa-trash"></i></button>
-                                                    <button class="btn btn-info btn-xs">TRANSFERIR</button>
-                                                    <button class="btn btn-danger btn-xs">BAJA</button>
-                                                    <button class="btn btn-info btn-xs"><i
-                                                            class="fa fa-print"></i></button>
-                                                </td>
-                                            </tr>
+                                        <tbody id="tablaResumenSaldos">
                                         </tbody>
                                     </table>
                                 </div>
@@ -560,7 +356,7 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="js/resumen_saldos_test.js"></script>
 </body>
 
 </html>
