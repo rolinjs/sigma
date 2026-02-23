@@ -1,0 +1,391 @@
+<html style="height: auto;">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Blank Page</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="resorce/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="resorce/dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="resorce/plugins/select2/css/select2.min.css">
+
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="resorce/plugins/daterangepicker/daterangepicker.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="resorce/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="resorce/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <style>
+        /* Opcional: resaltado visual de zona seleccionada */
+        .zona-seleccionada {
+            border: 3px solid #007bff;
+            /* azul */
+            box-shadow: 0 0 10px #007bff;
+        }
+
+        .tarima-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .tarima-item {
+            padding: 15px;
+            border: 1px solid #ccc;
+            font-weight: bold;
+        }
+
+        .columnas-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .columna {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .casilla {
+            width: 60px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+
+
+        .small-box {
+            height: 35px;
+        }
+    </style>
+</head>
+
+<body class="sidebar-mini sidebar-collapse" style="height: auto;">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+        </nav>
+        <!-- /.navbar -->
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="resorce/index3.html" class="brand-link">
+                <img src="resorce/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+                    class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">AdminLTE 3</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                        <img src="resorce/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block">Alexander Pierce</a>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-warning"></i>
+                                <p>Abastecimiento</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="hidro.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Hidrotérmico</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="programacion_empaque.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Programación Empaque</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="empaque_trza_por_pallet.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Empaque Traza. Pallet</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="abastecimiento_lote.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Calibrado Abastec.Lote</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="emp_abast.html" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>Empaque Abastec.Lote</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="min-height: 1364.81px;">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>Abastecimiento 1.2</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Empaque Abastecimiento Por Lote</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+
+                    <!-- Header -->
+                    <div class="row mb-2">
+                        <div class="col-12">
+                            <div class="card card-primary card-outline">
+                                <div class="card-header p-2">
+                                    <h3 class="card-title mb-0">EMPAQUE: ABASTECIMIENTO POR LOTES - COREA</h3>
+                                    <div class="card-tools">
+                                        <div class="input-group input-group-sm" style="width: 200px;">
+                                            <select class="form-control form-control-sm">
+                                                <option>N° TARIMA: 217</option>
+                                            </select>
+                                            <div class="input-group-append">
+                                                <button type="button" class="btn btn-primary btn-sm">
+                                                    <i class="fas fa-sync-alt"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form: Fila 1 -->
+                    <div class="row g-2">
+                        <div class="col-md-3">
+                            <label>N° LOTE</label>
+                            <input type="text" class="form-control form-control-sm" value="12-083" readonly>
+                        </div>
+                        <div class="col-md-3">
+                            <label>VARIEDAD</label>
+                            <input type="text" class="form-control form-control-sm" value="KENT" readonly>
+                        </div>
+                        <div class="col-md-3">
+                            <label>N° TARIMA</label>
+                            <input type="text" class="form-control form-control-sm" value="51270" readonly>
+                        </div>
+                        <div class="col-md-3">
+                            <label>CALIBRE</label>
+                            <input type="text" class="form-control form-control-sm" value="10" readonly>
+                        </div>
+                    </div>
+
+                    <!-- Form: Fila 2 -->
+                    <div class="row g-2 mt-1">
+                        <div class="col-md-4">
+                            <label>CLIENTE</label>
+                            <input type="text" class="form-control form-control-sm" value="DAMOA CORPORATION SAC" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label>TIPO PROD.</label>
+                            <input type="text" class="form-control form-control-sm" value="CONVENCIONAL" readonly>
+                        </div>
+                        <div class="col-md-4">
+                            <label>N° TAR. MET.</label>
+                            <input type="text" class="form-control form-control-sm" value="217" readonly>
+                        </div>
+                    </div>
+
+                    <!-- Fila 3: JABAS y POSICIÓN -->
+                    <div class="row g-2 mt-1">
+                        <div class="col-md-3">
+                            <label>JABAS</label>
+                            <input type="text" class="form-control form-control-sm" value="30" readonly>
+                        </div>
+                        <div class="col-md-3">
+                            <label>POSICIÓN</label>
+                            <input type="text" class="form-control form-control-sm" value="1-30" readonly>
+                        </div>
+                    </div>
+
+                    <!-- Fila 4: LINEA y HORAS -->
+                    <div class="row g-2 mt-1">
+                        <div class="col-md-4">
+                            <label>*LINEA</label>
+                            <div class="input-group input-group-sm">
+                                <select class="form-control form-control-sm">
+                                    <option>EMPAQUE COREA 1</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-success btn-sm">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>*HORA INICIO</label>
+                            <input type="text" class="form-control form-control-sm" value="15/03/2018 17:05:03">
+                        </div>
+                        <div class="col-md-4">
+                            <label>*HORA FIN</label>
+                            <input type="text" class="form-control form-control-sm" value="15/03/2018 17:05:03">
+                        </div>
+                    </div>
+
+                    <!-- Fila 5: JABAS ABASTECIDAS -->
+                    <div class="row g-2 mt-1">
+                        <div class="col-md-3">
+                            <label>JABAS ABASTECIDAS</label>
+                            <input type="text" class="form-control form-control-sm" value="30">
+                        </div>
+                        <div class="col-md-3">
+                            <label>POSICIÓN</label>
+                            <input type="text" class="form-control form-control-sm" value="1">
+                        </div>
+                        <div class="col-md-3">
+                            <label>SALDO</label>
+                            <input type="text" class="form-control form-control-sm" value="0" readonly>
+                        </div>
+                    </div>
+
+                    <!-- Fila 6: OBSERVACIONES -->
+                    <div class="row g-2 mt-1">
+                        <div class="col-md-8">
+                            <label>OBSERVACIONES</label>
+                            <input type="text" class="form-control form-control-sm" value="">
+                        </div>
+                    </div>
+
+                    <!-- Fila 7: BOTONES -->
+                    <div class="row mt-2">
+                        <div class="col-12 d-flex gap-2">
+                            <button type="button" class="btn btn-primary btn-sm">
+                                <i class="fas fa-save fa-sm"></i> GUARDAR
+                            </button>
+                            <button type="button" class="btn btn-info btn-sm">
+                                <i class="fas fa-lock-open fa-sm"></i> DESBLOQUEAR
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tabla -->
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <div class="card p-2">
+                                <table class="table table-bordered table-sm table-striped mb-0">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>HORA INICIO</th>
+                                            <th>HORA FINAL</th>
+                                            <th>JABAS</th>
+                                            <th>OBSERVACIONES</th>
+                                            <th style="width: 180px;"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="text" class="form-control form-control-sm" value="28/03/2018 11:35:29"></td>
+                                            <td><input type="text" class="form-control form-control-sm" value="28/03/2018 11:35:29"></td>
+                                            <td><input type="text" class="form-control form-control-sm" placeholder="JABAS PROCESADAS"></td>
+                                            <td><input type="text" class="form-control form-control-sm" placeholder="OBSERVACIONES"></td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm">GUARDAR</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2018-03-15 17:05:03</td>
+                                            <td>2018-03-15 17:05:03</td>
+                                            <td>30</td>
+                                            <td></td>
+                                            <td>
+                                                <div class="btn-group btn-group-sm" role="group">
+                                                    <button class="btn btn-info btn-sm">EDITAR</button>
+                                                    <button class="btn btn-danger btn-sm">ELIMINAR</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 3.0.0
+            </div>
+            <strong>Copyright © 2026<a href="#"> Koricancha </a>.</strong> Todos los derechos reservados
+        </footer>
+
+        <!-- ./wrapper -->
+
+        <!-- jQuery -->
+        <script src="resorce/plugins/jquery/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="resorce/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Moment (PRIMERO) -->
+        <script src="resorce/plugins/moment/moment.min.js"></script>
+
+        <!-- Date Range Picker (DESPUÉS de moment) -->
+        <script src="resorce/plugins/daterangepicker/daterangepicker.js"></script>
+
+        <!-- InputMask -->
+        <script src="resorce/plugins/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+
+        <!-- Select2 -->
+        <script src="resorce/plugins/select2/js/select2.full.min.js"></script>
+
+        <!-- AdminLTE -->
+        <script src="resorce/dist/js/adminlte.min.js"></script>
+        <script src="resorce/dist/js/demo.js"></script>
+
+        <script src="js/ap.js"></script>
+</body>
+
+</html>
