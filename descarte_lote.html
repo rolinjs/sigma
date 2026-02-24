@@ -157,141 +157,150 @@
             <!-- /.sidebar -->
         </aside>
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
 
-            <!-- Content Header -->
-            <section class="content-header">
-                <div class="container-fluid">
-                    <h4 class="mb-2"><b>EMPAQUE - DESCARTE POR LOTE</b></h4>
-                </div>
-            </section>
+                <!-- Content Header -->
+                <section class="content-header">
+                    <div class="container-fluid">
+                        <h4 class="mb-2"><b>EMPAQUE - DESCARTE POR LOTE</b></h4>
+                    </div>
+                </section>
 
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
+                <!-- Main content -->
+                <section class="content">
+                    <div class="container-fluid">
 
-                    <div class="card card-outline card-primary">
+                        <div class="card card-outline card-primary">
 
-                        <!-- Filtros superiores -->
-                        <div class="card-header">
-                            <div class="row">
+                            <!-- Filtros superiores -->
+                            <div class="card-header">
+                                <div class="row">
 
-                                <div class="col-md-3">
-                                    <label>Fecha</label>
-                                    <input type="datetime-local" class="form-control form-control-sm">
+                                    <div class="col-md-3">
+                                        <label>Fecha</label>
+                                        <input type="datetime-local" class="form-control form-control-sm">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>Empaque descarte por lote</label>
+                                        <select class="form-control form-control-sm">
+                                            <option>EMPAQUE_PLANTA</option>
+                                            <option>EMPAQUE_EUROPA</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label>Área Planta</label>
+                                        <select class="form-control form-control-sm">
+                                            <option>EUROPA 1</option>
+                                            <option>EUROPA 2</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-2 d-flex align-items-end">
+                                        <button class="btn btn-primary btn-sm btn-block">
+                                            <i class="fas fa-search"></i> Buscar
+                                        </button>
+                                    </div>
+
                                 </div>
-
-                                <div class="col-md-4">
-                                    <label>Empaque descarte por lote</label>
-                                    <select class="form-control form-control-sm">
-                                        <option>EMPAQUE_PLANTA</option>
-                                        <option>EMPAQUE_EUROPA</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label>Área Planta</label>
-                                    <select class="form-control form-control-sm">
-                                        <option>EUROPA 1</option>
-                                        <option>EUROPA 2</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-2 d-flex align-items-end">
-                                    <button class="btn btn-primary btn-sm btn-block">
-                                        <i class="fas fa-search"></i> Buscar
-                                    </button>
-                                </div>
-
                             </div>
-                        </div>
 
-                        <!-- Cuerpo -->
-                        <div class="card-body p-2">
+                            <!-- Cuerpo -->
+                            <div class="card-body p-2">
 
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-sm text-center">
-                                    <thead class="bg-light">
-                                        <tr>
-                                            <th>Línea</th>
-                                            <th>N° Lote</th>
-                                            <th>N° Guía</th>
-                                            <th>Cantidad</th>
-                                            <th>Peso Neto</th>
-                                            <th style="width:180px;">Acciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-sm text-center">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th>Exportador</th>
+                                                <th>Línea</th>
+                                                <th>N° Lote</th>
+                                                <th>N° Guía</th>
+                                                <th>Cantidad</th>
+                                                <th>Peso Neto</th>
+                                                <th style="width:180px;">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-                                        <!-- Fila editable -->
-                                        <tr>
-                                            <td>
-                                                <select class="form-control form-control-sm">
-                                                    <option>01-001</option>
-                                                    <option>01-002</option>
-                                                </select>
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control form-control-sm">
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control form-control-sm">
-                                            </td>
-                                            <td>
-                                                <input type="number" class="form-control form-control-sm text-right">
-                                            </td>
-                                            <td>
-                                                <input type="number" class="form-control form-control-sm text-right">
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-success btn-xs">
-                                                    <i class="fas fa-save"></i> Guardar
-                                                </button>
+                                            <!-- Fila editable -->
+                                            <tr>
+                                                <td>
+                                                    <select class="form-control form-control-sm">
+                                                        <option>AGROEXPORT S.A.C</option>
+                                                        <option>FRUTOS DEL NORTE</option>
+                                                        <option>EXPORT PERÚ FOODS</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control form-control-sm">
+                                                        <option>01-001</option>
+                                                        <option>01-002</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control form-control-sm">
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="form-control form-control-sm">
+                                                </td>
+                                                <td>
+                                                    <input type="number" class="form-control form-control-sm text-right">
+                                                </td>
+                                                <td>
+                                                    <input type="number" class="form-control form-control-sm text-right">
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-success btn-xs">
+                                                        <i class="fas fa-save"></i> Guardar
+                                                    </button>
 
-                                                <button class="btn btn-danger btn-xs">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
+                                                    <button class="btn btn-danger btn-xs">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
 
-                                                <button class="btn btn-info btn-xs">
-                                                    <i class="fas fa-edit"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
+                                                    <button class="btn btn-info btn-xs">
+                                                        <i class="fas fa-edit"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
 
-                                        <!-- Fila resultado (verde claro como en tu imagen) -->
-                                        <tr class="bg-success-light" style="background-color:#d4edda;">
-                                            <td>EUROPA 1</td>
-                                            <td>0007</td>
-                                            <td>12</td>
-                                            <td>5</td>
-                                            <td>241.44</td>
-                                            <td>
-                                                <button class="btn btn-success btn-xs">
-                                                    <i class="fas fa-check"></i> Aprobado
-                                                </button>
-                                                <button class="btn btn-danger btn-xs">
-                                                    <i class="fas fa-times"></i>
-                                                </button>
-                                                <button class="btn btn-primary btn-xs">
-                                                    <i class="fas fa-print"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
+                                            <!-- Fila resultado -->
+                                            <tr style="background-color:#d4edda;">
+                                                <td>AGROEXPORT S.A.C</td>
+                                                <td>EUROPA 1</td>
+                                                <td>0007</td>
+                                                <td>12</td>
+                                                <td>5</td>
+                                                <td>241.44</td>
+                                                <td>
+                                                    <button class="btn btn-success btn-xs">
+                                                        <i class="fas fa-check"></i> Aprobado
+                                                    </button>
+                                                    <button class="btn btn-danger btn-xs">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                    <button class="btn btn-primary btn-xs">
+                                                        <i class="fas fa-print"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
 
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
 
                         </div>
 
                     </div>
+                </section>
 
-                </div>
-            </section>
-
-        </div>
-        <!-- /.content-wrapper -->
+            </div>
+            <!-- /.content-wrapper -->
 
         <footer class="main-footer">
             <div class="float-right d-none d-sm-block">
