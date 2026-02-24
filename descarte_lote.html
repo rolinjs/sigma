@@ -158,166 +158,138 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" style="min-height: 1364.81px;">
-            <!-- Content Header (Page header) -->
+        <div class="content-wrapper">
+
+            <!-- Content Header -->
             <section class="content-header">
                 <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1>Abastecimiento 1.2</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Abastecimiento Por Lote</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div><!-- /.container-fluid -->
+                    <h4 class="mb-2"><b>EMPAQUE - DESCARTE POR LOTE</b></h4>
+                </div>
             </section>
 
             <!-- Main content -->
             <section class="content">
+                <div class="container-fluid">
 
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">CALIBRADO: ABASTECIMIENTO POR LOTE</h3>
-                    </div>
-                    <div class="card-body">
-                        <!-- Fila 1: LÍNEA, TIPO DE PRODUCTO, VARIEDAD, NUEVA LÍNEA -->
-                        <div class="row g-2">
-                            <div class="col-md-3">
-                                <label>*LÍNEA</label>
-                                <div class="input-group input-group-sm">
+                    <div class="card card-outline card-primary">
+
+                        <!-- Filtros superiores -->
+                        <div class="card-header">
+                            <div class="row">
+
+                                <div class="col-md-3">
+                                    <label>Fecha</label>
+                                    <input type="datetime-local" class="form-control form-control-sm">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label>Empaque descarte por lote</label>
                                     <select class="form-control form-control-sm">
-                                        <option>CU 1</option>
+                                        <option>EMPAQUE_PLANTA</option>
+                                        <option>EMPAQUE_EUROPA</option>
                                     </select>
-                                    <button class="btn btn-primary btn-sm" type="button">
-                                        <i class="fas fa-sync fa-sm"></i>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Área Planta</label>
+                                    <select class="form-control form-control-sm">
+                                        <option>EUROPA 1</option>
+                                        <option>EUROPA 2</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-2 d-flex align-items-end">
+                                    <button class="btn btn-primary btn-sm btn-block">
+                                        <i class="fas fa-search"></i> Buscar
                                     </button>
                                 </div>
-                            </div>
 
-                            <div class="col-md-3">
-                                <label>TIPO DE PRODUCTO</label>
-                                <input type="text" class="form-control form-control-sm" value="CONVENCIONAL" readonly>
-                            </div>
-
-                            <div class="col-md-3">
-                                <label>VARIEDAD</label>
-                                <input type="text" class="form-control form-control-sm" value="HADEN" readonly>
-                            </div>
-
-                            <div class="col-md-3">
-                                <label>*LÍNEA</label>
-                                <div class="input-group input-group-sm">
-                                    <select class="form-control form-control-sm">
-                                        <option>CU 1</option>
-                                    </select>
-                                    <button class="btn btn-success btn-sm" type="button">
-                                        <i class="fas fa-plus fa-sm"></i>
-                                    </button>
-                                </div>
                             </div>
                         </div>
 
-                        <!-- Fila 2: HORA INICIO y HORA FINAL -->
-                        <div class="row g-2 mt-2">
-                            <div class="col-md-6 col-lg-5">
-                                <label>*HORA INICIO</label>
-                                <input type="text" class="form-control form-control-sm" value="27/03/2018 11:12:47" readonly>
-                            </div>
-                            <div class="col-md-6 col-lg-5">
-                                <label>*HORA FINAL</label>
-                                <input type="text" class="form-control form-control-sm" value="27/03/2018 11:12:47" readonly>
-                            </div>
-                        </div>
+                        <!-- Cuerpo -->
+                        <div class="card-body p-2">
 
-                        <!-- Fila 3: JABAS A PROCESAR y SALDO PENDIENTE -->
-                        <div class="row g-2 mt-2">
-                            <div class="col-md-3">
-                                <label>JABAS A PROCESAR</label>
-                                <input type="text" class="form-control form-control-sm" value="500">
-                            </div>
-                            <div class="col-md-3">
-                                <label>SALDO PENDIENTE</label>
-                                <input type="text" class="form-control form-control-sm" value="0" readonly>
-                            </div>
-                            <div class="col-md-3">
-                                <label>JABAS PROCESADAS</label>
-                                <input type="text" class="form-control form-control-sm" value="500">
-                            </div>
-                        </div>
-
-                        <!-- Fila 4: OBSERVACIONES -->
-                        <div class="row g-2 mt-2">
-                            <div class="col-md-8">
-                                <label>OBSERVACIONES</label>
-                                <input type="text" class="form-control form-control-sm" value="el lote fue rechazado por calibrado">
-                            </div>
-                        </div>
-
-                        <!-- Fila 5: BOTÓN GUARDAR -->
-                        <div class="row mt-2">
-                            <div class="col-12">
-                                <button class="btn btn-primary btn-sm">
-                                    <i class="fas fa-save fa-sm"></i> GUARDAR
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- TABLA -->
-                        <div class="row mt-4">
-                            <div class="col-12">
-                                <table class="table table-bordered table-sm table-striped">
-                                    <thead class="thead-light">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-sm text-center">
+                                    <thead class="bg-light">
                                         <tr>
-                                            <th>HORA INICIO</th>
-                                            <th>HORA FINAL</th>
-                                            <th>JABAS</th>
-                                            <th>OBSERVACIONES</th>
-                                            <th style="width: 250px;"></th>
+                                            <th>Línea</th>
+                                            <th>N° Lote</th>
+                                            <th>N° Guía</th>
+                                            <th>Cantidad</th>
+                                            <th>Peso Neto</th>
+                                            <th style="width:180px;">Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+
+                                        <!-- Fila editable -->
                                         <tr>
                                             <td>
-                                                <input type="text" class="form-control form-control-sm" value="27/03/2018 16:36:43">
+                                                <select class="form-control form-control-sm">
+                                                    <option>01-001</option>
+                                                    <option>01-002</option>
+                                                </select>
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control form-control-sm" value="27/03/2018 16:36:43">
+                                                <input type="text" class="form-control form-control-sm">
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control form-control-sm" value="JABAS PROCESADAS">
+                                                <input type="text" class="form-control form-control-sm">
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control form-control-sm" value="OBSERVACIONES">
+                                                <input type="number" class="form-control form-control-sm text-right">
                                             </td>
                                             <td>
-                                                <button class="btn btn-primary btn-sm">GUARDAR</button>
+                                                <input type="number" class="form-control form-control-sm text-right">
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-success btn-xs">
+                                                    <i class="fas fa-save"></i> Guardar
+                                                </button>
+
+                                                <button class="btn btn-danger btn-xs">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+
+                                                <button class="btn btn-info btn-xs">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>2018-03-27 11:12:47</td>
-                                            <td>2018-03-27 11:12:47</td>
-                                            <td>500</td>
-                                            <td></td>
+
+                                        <!-- Fila resultado (verde claro como en tu imagen) -->
+                                        <tr class="bg-success-light" style="background-color:#d4edda;">
+                                            <td>EUROPA 1</td>
+                                            <td>0007</td>
+                                            <td>12</td>
+                                            <td>5</td>
+                                            <td>241.44</td>
                                             <td>
-                                                <div class="btn-group btn-group-sm" role="group">
-                                                    <button class="btn btn-primary btn-sm">EDITAR</button>
-                                                    <button class="btn btn-danger btn-sm">ELIMINAR</button>
-                                                </div>
+                                                <button class="btn btn-success btn-xs">
+                                                    <i class="fas fa-check"></i> Aprobado
+                                                </button>
+                                                <button class="btn btn-danger btn-xs">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                                <button class="btn btn-primary btn-xs">
+                                                    <i class="fas fa-print"></i>
+                                                </button>
                                             </td>
                                         </tr>
+
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
-                    </div>
-                </div>
 
+                        </div>
+
+                    </div>
+
+                </div>
             </section>
-            <!-- /.content -->
+
         </div>
         <!-- /.content-wrapper -->
 

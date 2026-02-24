@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function (){
+document.addEventListener('DOMContentLoaded', function () {
     // =============================
     // MOCK DATA - RESUMEN DE SALDOS
     // =============================
